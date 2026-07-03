@@ -144,7 +144,7 @@ export default function CoursesPage() {
                     </div>
 
                     {/* Course details & icon header */}
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-center gap-4">
                       <div className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${course.accent} text-white flex items-center justify-center shrink-0 shadow-sm shadow-slate-200`}>
                         <Icon icon={course.icon} width={22} height={22} />
                       </div>
