@@ -214,21 +214,21 @@ export default function HomePage() {
               of Students
             </h1>
 
-            <p className="text-slate-600 text-sm sm:text-base md:text-[17px] max-w-xl mx-auto font-medium leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <p className="text-slate-650 text-sm sm:text-base md:text-[17px] max-w-xl mx-auto font-medium leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Bright Life couples expert live classes, structured resources, and government exam prep to help every student reach their full potential.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3.5 justify-center pt-4 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4 px-4 sm:px-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               <Link
                 href="/courses"
-                className="bg-slate-950 text-white font-extrabold px-8 py-3.5 rounded-xl hover:bg-slate-800 transition-all duration-300 text-center flex items-center justify-center gap-2 group text-xs sm:text-sm tracking-wider uppercase"
+                className="bg-slate-950 text-white font-extrabold px-8 py-3.5 rounded-xl hover:bg-slate-800 transition-all duration-300 text-center flex items-center justify-center gap-2 group text-xs sm:text-sm tracking-wider uppercase w-full sm:w-auto"
               >
                 Explore Courses
                 <Icon icon="lucide:arrow-right" className="group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               <Link
                 href="/admission"
-                className="bg-brand-yellow text-slate-950 font-extrabold px-8 py-3.5 rounded-xl hover:bg-yellow-350 transition-all duration-300 text-center flex items-center justify-center gap-2 text-xs sm:text-sm tracking-wider uppercase border border-brand-yellow/30 shadow-xs"
+                className="bg-brand-yellow text-slate-950 font-extrabold px-8 py-3.5 rounded-xl hover:bg-yellow-350 transition-all duration-300 text-center flex items-center justify-center gap-2 text-xs sm:text-sm tracking-wider uppercase border border-brand-yellow/30 shadow-xs w-full sm:w-auto"
               >
                 Apply Now
                 <Icon icon="lucide:user-plus" width={16} height={16} />
@@ -242,16 +242,16 @@ export default function HomePage() {
       </section>
 
       {/* 2. Statistics Section (Professional Minimalist Layout) */}
-      <section className="py-16 bg-slate-50 border-y border-slate-100">
+      <section className="py-10 sm:py-16 bg-slate-50 border-y border-slate-100">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {stats.map((stat, idx) => (
               <div
                 key={idx}
-                className="bg-white p-8 rounded-2xl border border-slate-100 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4"
+                className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4"
               >
                 <div className="flex justify-between items-start">
-                  <span className="text-4xl font-black text-slate-950 tracking-tight">
+                  <span className="text-3xl sm:text-4xl font-black text-slate-955 tracking-tight">
                     {stat.number}
                   </span>
                   <span className={`h-8 w-8 rounded-lg flex items-center justify-center shrink-0 ${stat.color}`}>
@@ -277,21 +277,21 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-5xl font-black text-slate-950">What makes us different</h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {features.map((feat, idx) => (
               <div
                 key={idx}
-                className="relative bg-white rounded-2xl p-8 overflow-hidden border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="relative bg-white rounded-2xl p-6 sm:p-8 overflow-hidden border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
                 {/* Giant watermark number */}
-                <span className="absolute -top-4 -right-2 text-[7rem] font-black text-slate-100 select-none leading-none pointer-events-none">
+                <span className="absolute -top-4 -right-2 text-[6rem] sm:text-[7rem] font-black text-slate-100 select-none leading-none pointer-events-none">
                   {feat.num}
                 </span>
 
                 {/* Content */}
-                <div className="relative z-10 space-y-3 pt-6">
-                  <h3 className="text-lg font-black text-slate-900 leading-snug">{feat.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{feat.description}</p>
+                <div className="relative z-10 space-y-3 pt-4 sm:pt-6">
+                  <h3 className="text-base sm:text-lg font-black text-slate-900 leading-snug">{feat.title}</h3>
+                  <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">{feat.description}</p>
                 </div>
 
                 {/* Bottom accent line */}
@@ -313,7 +313,7 @@ export default function HomePage() {
           </div>
 
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
+          <div className="flex overflow-x-auto sm:flex-wrap sm:justify-center gap-2 mb-8 sm:mb-12 pb-3 -mx-4 px-4 scrollbar-none select-none">
             {[
               { id: 'all', label: 'All Courses' },
               { id: 'academic', label: 'Academic Packages' },
@@ -322,7 +322,7 @@ export default function HomePage() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`px-6 py-2.5 rounded-full font-bold text-sm transition duration-300 hover:cursor-pointer ${
+                className={`px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition duration-300 hover:cursor-pointer whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'bg-primary text-white shadow-md'
                     : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
@@ -384,21 +384,21 @@ export default function HomePage() {
 
 
       {/* 7. Meet Our Faculty Section */}
-      <section className="py-20 sm:py-28 bg-slate-50/50 border-y border-slate-100">
+      <section className="py-16 sm:py-28 bg-slate-50/50 border-y border-slate-100">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="text-center space-y-3 mb-16">
+          <div className="text-center space-y-3 mb-12 sm:mb-16">
             <span className="text-primary text-xs font-black uppercase tracking-widest">Instructors & Mentors</span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950">Meet Our Faculty</h2>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-955">Meet Our Faculty</h2>
             <div className="h-1.5 w-16 bg-primary mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 max-w-4xl mx-auto">
             {faculty.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-3xl p-8 border border-slate-100 shadow-xs hover:shadow-md transition duration-300 flex flex-col items-center text-center space-y-6"
+                className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-xs hover:shadow-md transition duration-300 flex flex-col items-center text-center space-y-6"
               >
-                <div className="relative h-32 w-32 rounded-full overflow-hidden border-4 border-slate-100 shadow-md">
+                <div className="relative h-28 w-28 sm:h-32 sm:w-32 rounded-full overflow-hidden border-4 border-slate-100 shadow-md">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -410,11 +410,11 @@ export default function HomePage() {
                   <span className="bg-blue-50 text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
                     {item.experience} Exp
                   </span>
-                  <h3 className="text-xl font-bold text-slate-950">{item.name}</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-955">{item.name}</h3>
                   <p className="text-primary text-xs font-extrabold uppercase tracking-wider">{item.role}</p>
                   <p className="text-slate-500 text-xs font-semibold">Specialization: {item.spec}</p>
                 </div>
-                <p className="text-slate-600 text-sm leading-relaxed max-w-sm">{item.desc}</p>
+                <p className="text-slate-650 text-xs sm:text-sm leading-relaxed max-w-sm">{item.desc}</p>
 
                 <div className="pt-2 w-full">
                   <Link
@@ -431,19 +431,19 @@ export default function HomePage() {
       </section>
 
       {/* 8. Student Success Stories (Carousel / Testimonials Grid) */}
-      <section className="py-20 sm:py-28 bg-white">
+      <section className="py-16 sm:py-28 bg-white">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="text-center space-y-3 mb-16">
+          <div className="text-center space-y-3 mb-12 sm:mb-16">
             <span className="text-primary text-xs font-black uppercase tracking-widest">Student Voice</span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950">Student Success Stories</h2>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-955">Student Success Stories</h2>
             <div className="h-1.5 w-16 bg-primary mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-3xl p-8 border border-slate-100 shadow-xs hover:shadow-md transition duration-300 flex flex-col justify-between relative overflow-hidden"
+                className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-xs hover:shadow-md transition duration-300 flex flex-col justify-between relative overflow-hidden"
               >
                 <span className="absolute top-6 right-6 text-slate-100 text-5xl font-black font-serif select-none leading-none">
                   “
@@ -455,11 +455,11 @@ export default function HomePage() {
                       <Icon key={i} icon="material-symbols:star-rounded" width={18} height={18} />
                     ))}
                   </div>
-                  <p className="text-slate-600 text-sm italic leading-relaxed relative z-10">&ldquo;{item.text}&rdquo;</p>
+                  <p className="text-slate-655 text-xs sm:text-sm italic leading-relaxed relative z-10">&ldquo;{item.text}&rdquo;</p>
                 </div>
                 
-                <div className="flex items-center gap-4 mt-8 pt-6 border-t border-slate-100">
-                  <div className="relative h-12 w-12 rounded-full overflow-hidden shrink-0 border border-slate-200">
+                <div className="flex items-center gap-4 mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-slate-100">
+                  <div className="relative h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden shrink-0 border border-slate-200">
                     <Image
                       src={item.image}
                       alt={item.name}
@@ -469,12 +469,12 @@ export default function HomePage() {
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
-                      <h4 className="font-bold text-slate-950 text-sm">{item.name}</h4>
+                      <h4 className="font-bold text-slate-955 text-xs sm:text-sm">{item.name}</h4>
                       <span className="bg-emerald-100 text-emerald-600 text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase">
                         Verified
                       </span>
                     </div>
-                    <p className="text-slate-500 text-[10px] font-semibold">{item.course}</p>
+                    <p className="text-slate-500 text-[9px] sm:text-[10px] font-semibold">{item.course}</p>
                   </div>
                 </div>
               </div>
@@ -485,34 +485,34 @@ export default function HomePage() {
 
 
       {/* 10. FAQ Accordion */}
-      <section className="py-20 sm:py-28 bg-white border-t border-slate-100">
+      <section className="py-16 sm:py-28 bg-white border-t border-slate-100">
         <div className="container mx-auto max-w-3xl px-4">
-          <div className="text-center space-y-3 mb-12">
+          <div className="text-center space-y-3 mb-10 sm:mb-12">
             <span className="text-primary text-xs font-black uppercase tracking-widest">FAQ Desk</span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950">Frequently Asked Questions</h2>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-955">Frequently Asked Questions</h2>
             <div className="h-1.5 w-16 bg-primary mx-auto rounded-full"></div>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-xs hover:shadow-sm transition duration-300"
+                className="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-xs hover:shadow-sm transition duration-305"
               >
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full text-left p-6 font-bold text-slate-950 flex justify-between items-center hover:bg-slate-50 transition duration-300 hover:cursor-pointer"
+                  className="w-full text-left p-4 sm:p-6 font-bold text-slate-955 flex justify-between items-center hover:bg-slate-50/50 transition duration-300 hover:cursor-pointer text-xs sm:text-sm md:text-base gap-3"
                 >
-                  <span className="flex items-center gap-3">
-                    <Icon icon="lucide:help-circle" className="text-primary shrink-0" />
+                  <span className="flex items-center gap-2.5 sm:gap-3 leading-snug">
+                    <Icon icon="lucide:help-circle" className="text-primary shrink-0" width={18} height={18} />
                     {faq.q}
                   </span>
-                  <span className="text-slate-400">
-                    <Icon icon={faqOpen === idx ? 'lucide:minus' : 'lucide:plus'} />
+                  <span className="text-slate-400 shrink-0">
+                    <Icon icon={faqOpen === idx ? 'lucide:minus' : 'lucide:plus'} width={16} height={16} />
                   </span>
                 </button>
                 {faqOpen === idx && (
-                  <div className="px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-50 pt-4 pl-12">
+                  <div className="px-4 pb-4 sm:px-6 sm:pb-6 text-slate-650 text-xs sm:text-sm leading-relaxed border-t border-slate-50 pt-3 sm:pt-4 pl-10 sm:pl-12">
                     {faq.a}
                   </div>
                 )}
@@ -523,23 +523,23 @@ export default function HomePage() {
       </section>
 
       {/* 11. Call To Action Section */}
-      <section className="py-24 bg-primary text-white text-center relative overflow-hidden">
+      <section className="py-16 sm:py-24 bg-primary text-white text-center relative overflow-hidden">
         {/* Abstract floating circles */}
         <div className="absolute top-[-20%] left-[-10%] h-[300px] w-[300px] rounded-full bg-white/5 blur-2xl"></div>
         <div className="absolute bottom-[-20%] right-[-10%] h-[350px] w-[350px] rounded-full bg-white/5 blur-2xl"></div>
 
-        <div className="container mx-auto max-w-4xl px-4 relative z-10 space-y-8">
-          <span className="bg-white/10 border border-white/20 text-white text-xs px-4 py-2 rounded-full font-bold uppercase tracking-wider inline-flex items-center gap-2">
+        <div className="container mx-auto max-w-4xl px-6 sm:px-4 relative z-10 space-y-6 sm:space-y-8">
+          <span className="bg-white/10 border border-white/20 text-white text-[10px] sm:text-xs px-4 py-1.5 rounded-full font-bold uppercase tracking-wider inline-flex items-center gap-2">
             Admissions Open
           </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-white leading-tight">Ready to Build Your Future?</h2>
-          <p className="text-blue-100 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+          <h2 className="text-2xl sm:text-5xl font-black text-white leading-tight">Ready to Build Your Future?</h2>
+          <p className="text-blue-100 max-w-xl mx-auto text-xs sm:text-base leading-relaxed font-medium">
             Get in touch with us, explore batch timings, and start learning from Nepal's leading educational mentors today.
           </p>
-          <div className="pt-2">
+          <div className="pt-2 px-4 sm:px-0">
             <Link
               href="/contact"
-              className="inline-block bg-white text-slate-950 hover:bg-slate-100 font-extrabold px-8 py-4 rounded-2xl shadow-lg transition duration-300 hover:cursor-pointer"
+              className="w-full sm:w-auto inline-block bg-white text-slate-950 hover:bg-slate-100 font-extrabold px-8 py-3.5 rounded-xl shadow-lg transition duration-300 hover:cursor-pointer text-xs sm:text-sm tracking-wider uppercase"
             >
               Contact Us Today
             </Link>
