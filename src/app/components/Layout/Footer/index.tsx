@@ -9,13 +9,31 @@ const Footer = () => {
   const year = new Date().getFullYear()
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (email.trim()) {
-      setSubscribed(true)
-      setEmail('')
-      setTimeout(() => setSubscribed(false), 3000)
+    if (!email.trim() || submitting) return
+    setSubmitting(true)
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, formType: 'newsletter' }),
+      })
+      const data = await res.json()
+      if (res.ok && data.success) {
+        setSubscribed(true)
+        setEmail('')
+        setTimeout(() => setSubscribed(false), 5000)
+      } else {
+        alert('Newsletter Error: ' + (data.error || 'Failed to subscribe.'))
+      }
+    } catch (err) {
+      alert('Subscription failed. Please check your connection.')
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -182,7 +200,7 @@ const Footer = () => {
                   type="submit"
                   className="absolute right-1 top-1 bottom-1 bg-slate-955 hover:bg-slate-800 text-white px-3 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer"
                 >
-                  {subscribed ? 'Subscribed!' : 'Join'}
+                  {subscribed ? 'Subscribed!' : submitting ? 'Adding...' : 'Join'}
                 </button>
               </div>
             </form>

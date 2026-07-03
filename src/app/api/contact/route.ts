@@ -114,6 +114,50 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, data })
     }
 
+    if (formType === 'newsletter') {
+      const { email } = body
+
+      if (!email) {
+        return NextResponse.json({ error: 'Email is required' }, { status: 400 })
+      }
+
+      let audienceId = ''
+
+      try {
+        // 1. Get the list of audiences from Resend
+        const audiencesList = await resend.audiences.list()
+        
+        if (audiencesList.data && audiencesList.data.length > 0) {
+          audienceId = audiencesList.data[0].id
+        } else {
+          // 2. If no audience exists, create a default Newsletter list
+          const newAudience = await resend.audiences.create({ name: 'Newsletter Subscribers' })
+          if (newAudience.data) {
+            audienceId = newAudience.data.id
+          }
+        }
+
+        if (!audienceId) {
+          throw new Error('Failed to find or create a Resend audience list.')
+        }
+
+        // 3. Add contact to the Resend audience list
+        const contactResult = await resend.contacts.create({
+          email: email,
+          audienceId: audienceId,
+          unsubscribed: false,
+        })
+
+        if (contactResult.error) {
+          return NextResponse.json({ error: contactResult.error.message }, { status: 400 })
+        }
+
+        return NextResponse.json({ success: true, data: contactResult.data })
+      } catch (apiErr: any) {
+        return NextResponse.json({ error: apiErr.message || 'Resend API operation failed.' }, { status: 400 })
+      }
+    }
+
     return NextResponse.json({ error: 'Invalid form type' }, { status: 400 })
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 })
