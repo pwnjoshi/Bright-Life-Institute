@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Icon } from '@iconify/react'
 
 export const metadata = {
@@ -65,8 +66,13 @@ export default function StaffsPage() {
       <div className="bg-slate-50 border-b border-slate-100 py-16 px-4">
         <div className="container mx-auto max-w-3xl">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8">
-            <div className="h-16 w-16 rounded-2xl bg-brand-red/10 text-brand-red flex items-center justify-center border border-brand-red/20 shadow-xs shrink-0">
-              <Icon icon="lucide:graduation-cap" width={28} height={28} />
+            <div className="relative h-20 w-20 rounded-2xl overflow-hidden border border-slate-200 shadow-sm shrink-0">
+              <Image
+                src="/images/uploads/sudarsan-sit-e1668217849758-300x292.jpg"
+                alt="Mr. Sudarsan Pd. Bhatt"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="text-center sm:text-left space-y-2">
               <span className="text-[10px] font-bold uppercase tracking-widest text-brand-red">Founder & Director</span>
