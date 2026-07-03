@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${bodyFont.variable} ${titleFont.variable} font-sans`}>
+      <body className={`${bodyFont.variable} ${titleFont.variable} font-sans`} suppressHydrationWarning>
           <Aoscompo>
             <Header />
             {children}

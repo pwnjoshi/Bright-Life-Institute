@@ -200,10 +200,10 @@ export default function HomePage() {
               <span className="bg-brand-red text-white text-[9px] font-black px-2.5 py-0.5 rounded-full tracking-widest">
                 ESTD. 2005
               </span>
-              <span>Mahendranagar&apos;s Favorite Study Hub</span>
+              <span className="truncate max-w-[150px] xs:max-w-none">Mahendranagar&apos;s Favorite Study Hub</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight text-slate-950 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight text-slate-955 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               Providing Quality Education for the{' '}
               <span className="text-brand-red relative inline-block">
                 Upliftment
@@ -221,7 +221,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4 px-4 sm:px-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               <Link
                 href="/courses"
-                className="bg-slate-950 text-white font-extrabold px-8 py-3.5 rounded-xl hover:bg-slate-800 transition-all duration-300 text-center flex items-center justify-center gap-2 group text-xs sm:text-sm tracking-wider uppercase w-full sm:w-auto"
+                className="bg-slate-955 text-white font-extrabold px-8 py-3.5 rounded-xl hover:bg-slate-800 transition-all duration-300 text-center flex items-center justify-center gap-2 group text-xs sm:text-sm tracking-wider uppercase w-full sm:w-auto"
               >
                 Explore Courses
                 <Icon icon="lucide:arrow-right" className="group-hover:translate-x-1 transition-transform duration-200" />
@@ -244,14 +244,14 @@ export default function HomePage() {
       {/* 2. Statistics Section (Professional Minimalist Layout) */}
       <section className="py-10 sm:py-16 bg-slate-50 border-y border-slate-100">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {stats.map((stat, idx) => (
               <div
                 key={idx}
-                className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4"
+                className="bg-white p-4 sm:p-8 rounded-2xl border border-slate-100 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-3"
               >
                 <div className="flex justify-between items-start">
-                  <span className="text-3xl sm:text-4xl font-black text-slate-955 tracking-tight">
+                  <span className="text-2xl sm:text-4xl font-black text-slate-955 tracking-tight">
                     {stat.number}
                   </span>
                   <span className={`h-8 w-8 rounded-lg flex items-center justify-center shrink-0 ${stat.color}`}>
@@ -259,8 +259,8 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="space-y-1">
-                  <p className="text-sm font-black text-slate-800">{stat.label}</p>
-                  <p className="text-xs text-slate-400 font-semibold leading-relaxed">{stat.desc}</p>
+                  <p className="text-xs sm:text-sm font-black text-slate-800 leading-tight">{stat.label}</p>
+                  <p className="text-[10px] sm:text-xs text-slate-400 font-semibold leading-normal">{stat.desc}</p>
                 </div>
               </div>
             ))}
