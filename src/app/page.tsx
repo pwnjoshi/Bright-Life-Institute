@@ -200,7 +200,7 @@ export default function HomePage() {
               <span className="bg-brand-red text-white text-[9px] font-black px-2.5 py-0.5 rounded-full tracking-widest">
                 ESTD. 2005
               </span>
-              <span>Mahendranagar&apos;s Favorite Study Hub</span>
+              <span>Mahendranagar&apos;s #1 Study Hub</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight text-slate-950 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '100ms' }}>
