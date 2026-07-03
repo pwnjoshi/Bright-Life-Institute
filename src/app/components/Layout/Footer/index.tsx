@@ -162,7 +162,11 @@ const Footer = () => {
               Powered by <a href="https://techsangi.com.np" target="_blank" rel="noopener noreferrer" className="text-brand-red font-bold hover:underline">Tech Sangi</a>
             </span>
           </p>
-          <div className="flex items-center gap-4 text-slate-400">
+          <div className="flex items-center flex-wrap gap-4 text-slate-400">
+            <Link href="/privacy" className="hover:text-slate-700 transition">Privacy Policy</Link>
+            <span className="h-3 w-px bg-slate-200"></span>
+            <Link href="/terms" className="hover:text-slate-700 transition">Terms & Conditions</Link>
+            <span className="h-3 w-px bg-slate-200"></span>
             <span>Mahendranagar, Kanchanpur, Nepal</span>
             <span className="h-3 w-px bg-slate-200"></span>
             <span>ESTD. 2005</span>
