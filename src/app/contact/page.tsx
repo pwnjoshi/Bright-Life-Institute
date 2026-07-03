@@ -23,6 +23,15 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Cooldown verification (30 second rate limit to prevent spam bombing)
+    const lastSub = typeof window !== 'undefined' ? localStorage.getItem('last_submit_contact') : null
+    const now = Date.now()
+    if (lastSub && now - parseInt(lastSub) < 30000) {
+      alert('You are submitting too fast! Please wait 30 seconds before sending another message.')
+      return
+    }
+
     setSubmitted(true)
     try {
       const res = await fetch('/api/contact', {
@@ -32,6 +41,9 @@ export default function ContactPage() {
       })
       const data = await res.json()
       if (res.ok && data.success) {
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('last_submit_contact', now.toString())
+        }
         setIsSuccess(true)
         setFormData({
           firstName: '',

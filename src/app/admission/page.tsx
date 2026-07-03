@@ -31,6 +31,15 @@ export default function AdmissionPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Cooldown verification (30 second rate limit to prevent spam bombing)
+    const lastSub = typeof window !== 'undefined' ? localStorage.getItem('last_submit_admission') : null
+    const now = Date.now()
+    if (lastSub && now - parseInt(lastSub) < 30000) {
+      alert('You are submitting too fast! Please wait 30 seconds before sending another registration form.')
+      return
+    }
+
     setSubmitted(true)
     try {
       const res = await fetch('/api/contact', {
@@ -40,6 +49,9 @@ export default function AdmissionPage() {
       })
       const data = await res.json()
       if (res.ok && data.success) {
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('last_submit_admission', now.toString())
+        }
         setIsSuccess(true)
         setFormData({
           firstName: '',
