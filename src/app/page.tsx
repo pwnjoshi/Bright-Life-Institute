@@ -203,7 +203,7 @@ export default function HomePage() {
               <span>Mahendranagar&apos;s Favorite Study Hub</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight text-slate-955 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight text-slate-950 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               Providing Quality Education for the{' '}
               <span className="text-brand-red relative inline-block">
                 Upliftment
@@ -250,7 +250,7 @@ export default function HomePage() {
                 className="bg-white p-8 rounded-2xl border border-slate-100 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4"
               >
                 <div className="flex justify-between items-start">
-                  <span className="text-4xl font-black text-slate-955 tracking-tight">
+                  <span className="text-4xl font-black text-slate-950 tracking-tight">
                     {stat.number}
                   </span>
                   <span className={`h-8 w-8 rounded-lg flex items-center justify-center shrink-0 ${stat.color}`}>
@@ -409,7 +409,7 @@ export default function HomePage() {
                   <span className="bg-blue-50 text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
                     {item.experience} Exp
                   </span>
-                  <h3 className="text-xl font-bold text-slate-955">{item.name}</h3>
+                  <h3 className="text-xl font-bold text-slate-950">{item.name}</h3>
                   <p className="text-primary text-xs font-extrabold uppercase tracking-wider">{item.role}</p>
                   <p className="text-slate-500 text-xs font-semibold">Specialization: {item.spec}</p>
                 </div>
@@ -468,7 +468,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
-                      <h4 className="font-bold text-slate-955 text-sm">{item.name}</h4>
+                      <h4 className="font-bold text-slate-950 text-sm">{item.name}</h4>
                       <span className="bg-emerald-100 text-emerald-600 text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase">
                         Verified
                       </span>
@@ -500,7 +500,7 @@ export default function HomePage() {
               >
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full text-left p-6 font-bold text-slate-955 flex justify-between items-center hover:bg-slate-50 transition duration-300 hover:cursor-pointer"
+                  className="w-full text-left p-6 font-bold text-slate-950 flex justify-between items-center hover:bg-slate-50 transition duration-300 hover:cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
                     <Icon icon="lucide:help-circle" className="text-primary shrink-0" />

@@ -63,7 +63,7 @@ export default function CoursesPage() {
             <span className="bg-brand-red text-white text-[9px] font-black px-2.5 py-0.5 rounded-full mr-1">ESTD. 2005</span>
             Courses
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-955 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-black text-slate-950 leading-tight">
             Our Courses & Programs
           </h1>
           <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed font-medium">

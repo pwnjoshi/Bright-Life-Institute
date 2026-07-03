@@ -92,7 +92,7 @@ const Footer = () => {
                 />
               </Link>
               <div className="space-y-0.5">
-                <span className="text-slate-955 text-lg font-extrabold tracking-tight">Bright Life</span>
+                <span className="text-slate-950 text-lg font-extrabold tracking-tight">Bright Life</span>
                 <div className="text-[8px] text-brand-red font-black uppercase tracking-widest flex items-center gap-1">
                   <span className="h-1 w-1 bg-brand-yellow rounded-full"></span>
                   Educational Institute
@@ -198,7 +198,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="absolute right-1 top-1 bottom-1 bg-slate-955 hover:bg-slate-800 text-white px-3 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer"
+                  className="absolute right-1 top-1 bottom-1 bg-slate-950 hover:bg-slate-800 text-white px-3 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer"
                 >
                   {subscribed ? 'Subscribed!' : submitting ? 'Adding...' : 'Join'}
                 </button>

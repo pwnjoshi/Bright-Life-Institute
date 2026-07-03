@@ -245,7 +245,30 @@ export async function POST(request: Request) {
 
         return NextResponse.json({ success: true, data: contactResult.data })
       } catch (apiErr: any) {
-        return NextResponse.json({ error: apiErr.message || 'Resend API operation failed.' }, { status: 400 })
+        // Fallback: If Resend Audience/Contact API fails (e.g. tier limits or unverified domain),
+        // we fallback to sending a standard transaction email to your target inbox so you don't lose leads!
+        try {
+          const fallbackMail = await resend.emails.send({
+            from: 'Bright Life Website <techsangi@brightlife.edu.np>',
+            to: targetEmail,
+            subject: `[Newsletter Signup] New subscriber - ${email}`,
+            html: `
+              <div style="font-family: sans-serif; padding: 20px; color: #1e293b; max-width: 600px; border: 1px solid #f1f5f9; border-radius: 12px;">
+                <h2 style="color: #0f172a; border-bottom: 2px solid #ff5b5b; padding-bottom: 10px; margin-bottom: 20px;">New Newsletter Subscriber</h2>
+                <p>A user subscribed to the newsletter list. Because the Resend Audience/Contacts API returned an access tier error, the subscription was successfully routed to your inbox:</p>
+                <p><strong>Email Address:</strong> <a href="mailto:${email}">${email}</a></p>
+                <hr style="border: 0; border-top: 1px solid #e2e8f0; margin-top: 30px; margin-bottom: 10px;" />
+                <p style="font-size: 11px; color: #64748b; margin: 0;">Sent via Bright Life Educational Institute Website</p>
+              </div>
+            `
+          })
+          if (fallbackMail.error) {
+            return NextResponse.json({ error: fallbackMail.error.message }, { status: 400 })
+          }
+          return NextResponse.json({ success: true, message: 'Delivered via Email fallback' })
+        } catch (mailErr: any) {
+          return NextResponse.json({ error: mailErr.message || 'Resend API operation failed.' }, { status: 400 })
+        }
       }
     }
 

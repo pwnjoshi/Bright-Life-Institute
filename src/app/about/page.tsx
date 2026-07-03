@@ -70,7 +70,7 @@ export default function AboutPage() {
             <span className="bg-brand-red text-white text-[9px] font-black px-2.5 py-0.5 rounded-full mr-1">ESTD. 2005</span>
             About Us
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-955 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-black text-slate-950 leading-tight">
             About Bright Life
           </h1>
           <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed font-medium">
@@ -122,7 +122,7 @@ export default function AboutPage() {
             <div className="lg:col-span-7 space-y-6 lg:pl-4">
               <div className="space-y-2">
                 <span className="text-brand-red text-xs font-black uppercase tracking-widest">Our Story</span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-955 leading-tight">
+                 <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 leading-tight">
                   Welcome to Bright Life Educational Institute
                 </h2>
                 <div className="h-[2px] w-8 bg-brand-red rounded-full"></div>

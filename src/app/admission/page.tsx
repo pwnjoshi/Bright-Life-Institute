@@ -95,7 +95,7 @@ export default function AdmissionPage() {
             <span className="bg-brand-red text-white text-[9px] font-black px-2.5 py-0.5 rounded-full mr-1">ESTD. 2005</span>
             Admission
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-955 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-black text-slate-950 leading-tight">
             Online Admission & Enrollment
           </h1>
           <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
@@ -132,7 +132,7 @@ export default function AdmissionPage() {
                   </button>
                   <Link
                     href="/"
-                    className="border border-slate-200 text-slate-955 hover:bg-slate-50 font-extrabold px-6 py-3 rounded-xl transition duration-200 text-xs tracking-wider uppercase"
+                    className="border border-slate-200 text-slate-950 hover:bg-slate-50 font-extrabold px-6 py-3 rounded-xl transition duration-200 text-xs tracking-wider uppercase"
                   >
                     Go to Homepage
                   </Link>
