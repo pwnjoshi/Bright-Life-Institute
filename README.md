@@ -61,7 +61,7 @@ This project is fully configured and optimized for deployment on [Vercel](https:
 1. Import your repository into Vercel.
 2. In the **Environment Variables** configuration section on Vercel, add:
    * Name: `RESEND_API_KEY`
-   * Value: `re_VqMWND2h_EnzMW9nnsXz6zJMMoMaPoYGL` (Your Resend Key)
+   * Value: `your_resend_api_key_here` (Your Resend Key)
    * Name: `CONTACT_RECEIVER_EMAIL`
    * Value: `info@brightlife.edu.np`
 3. Click **Deploy**. Vercel will automatically detect the Next.js setup, build, and optimize the bundle for production edge servers.
