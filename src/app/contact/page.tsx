@@ -10,9 +10,11 @@ export default function ContactPage() {
     email: '',
     subject: '',
     message: '',
+    botField: '', // Honeypot field to stop automated spam
   })
 
   const [submitted, setSubmitted] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false) // Custom success panel trigger
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -30,13 +32,14 @@ export default function ContactPage() {
       })
       const data = await res.json()
       if (res.ok && data.success) {
-        alert('Message Sent Successfully! We will reply to your email shortly.')
+        setIsSuccess(true)
         setFormData({
           firstName: '',
           lastName: '',
           email: '',
           subject: '',
           message: '',
+          botField: '',
         })
       } else {
         alert('Error: ' + (data.error || 'Failed to send message.'))
@@ -65,7 +68,7 @@ export default function ContactPage() {
             <span className="bg-brand-red text-white text-[9px] font-black px-2.5 py-0.5 rounded-full mr-1">ESTD. 2005</span>
             Contact
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-950 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-black text-slate-955 leading-tight">
             Contact Bright Life
           </h1>
           <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
@@ -74,26 +77,16 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Content Section */}
+      {/* Info & Form Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             
             {/* Left: Contact Info Column */}
-            <div className="space-y-6">
+            <div className="space-y-6 lg:col-span-1">
               
-              <div className="bg-white p-6 rounded-2xl border border-slate-100/90 shadow-xs flex items-center gap-4 hover:border-slate-200/80 transition-all duration-300">
+              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex items-center gap-4 hover:border-slate-200 transition-all duration-300">
                 <span className="text-xl bg-rose-50 text-brand-red h-10 w-10 rounded-xl flex items-center justify-center shrink-0">
-                  <Icon icon="lucide:map-pin" />
-                </span>
-                <div>
-                  <h3 className="font-black text-slate-900 text-sm">Location</h3>
-                  <p className="text-slate-500 text-xs mt-1 font-medium leading-relaxed">Campus Road, Katan-18 (near Park Old Gate) Mahendranagar</p>
-                </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-2xl border border-slate-100/90 shadow-xs flex items-center gap-4 hover:border-slate-200/80 transition-all duration-300">
-                <span className="text-xl bg-blue-50 text-blue-600 h-10 w-10 rounded-xl flex items-center justify-center shrink-0">
                   <Icon icon="lucide:phone" />
                 </span>
                 <div>
@@ -102,7 +95,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="bg-white p-6 rounded-2xl border border-slate-100/90 shadow-xs flex items-center gap-4 hover:border-slate-200/80 transition-all duration-300">
+              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex items-center gap-4 hover:border-slate-200 transition-all duration-300">
                 <span className="text-xl bg-emerald-50 text-emerald-600 h-10 w-10 rounded-xl flex items-center justify-center shrink-0">
                   <Icon icon="lucide:mail" />
                 </span>
@@ -131,87 +124,133 @@ export default function ContactPage() {
             </div>
 
             {/* Right: Message Form Column */}
-            <div className="lg:col-span-2 bg-white rounded-3xl p-8 sm:p-12 border border-slate-100/90 shadow-sm">
-              <h2 className="text-xl font-black text-slate-900 pb-6 border-b border-slate-100">Send us a Message</h2>
+            <div className="lg:col-span-2 bg-white rounded-3xl p-8 sm:p-12 border border-slate-100/90 shadow-sm flex flex-col justify-center">
+              
+              {isSuccess ? (
+                /* Custom Success Confirmation View */
+                <div className="text-center py-10 space-y-6 animate-fade-in-up">
+                  <div className="h-16 w-16 bg-emerald-50 text-emerald-500 rounded-full border border-emerald-100 flex items-center justify-center mx-auto shadow-xs">
+                    <Icon icon="lucide:check-circle-2" width={32} height={32} />
+                  </div>
+                  <div className="space-y-2">
+                    <h2 className="text-2xl font-black text-slate-900">Message Sent!</h2>
+                    <p className="text-slate-500 text-sm max-w-md mx-auto leading-relaxed font-medium">
+                      Thank you for contacting Bright Life Educational Institute. Your message has been sent successfully. We will reply to your inquiry at the email address provided shortly.
+                    </p>
+                  </div>
+                  
+                  <div className="pt-6">
+                    <button
+                      onClick={() => setIsSuccess(false)}
+                      className="bg-slate-950 hover:bg-slate-800 text-white font-extrabold px-6 py-3 rounded-xl transition duration-205 text-xs tracking-wider uppercase"
+                    >
+                      Send Another Message
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                /* Standard Contact Form */
+                <>
+                  <h2 className="text-xl font-black text-slate-900 pb-6 border-b border-slate-100">Send us a Message</h2>
 
-              <form onSubmit={handleSubmit} className="space-y-6 mt-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">First Name *</label>
+                  <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+                    {/* Honeypot field (hidden from humans, bot bait) */}
                     <input
                       type="text"
-                      name="firstName"
-                      required
-                      value={formData.firstName}
+                      name="botField"
+                      value={formData.botField}
                       onChange={handleChange}
-                      placeholder="First name"
-                      className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+                      className="hidden"
+                      tabIndex={-1}
+                      autoComplete="off"
                     />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Last Name *</label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      required
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      placeholder="Last name"
-                      className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors"
-                    />
-                  </div>
-                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Email Address *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="name@example.com"
-                      className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Subject *</label>
-                    <input
-                      type="text"
-                      name="subject"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="Subject of message"
-                      className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors"
-                    />
-                  </div>
-                </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">First Name *</label>
+                        <input
+                          type="text"
+                          name="firstName"
+                          required
+                          value={formData.firstName}
+                          onChange={handleChange}
+                          placeholder="First name"
+                          className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Last Name *</label>
+                        <input
+                          type="text"
+                          name="lastName"
+                          required
+                          value={formData.lastName}
+                          onChange={handleChange}
+                          placeholder="Last name"
+                          className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+                        />
+                      </div>
+                    </div>
 
-                <div>
-                  <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Your Message *</label>
-                  <textarea
-                    name="message"
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Type your message here..."
-                    className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors"
-                  ></textarea>
-                </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Email Address *</label>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="name@example.com"
+                          className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Subject *</label>
+                        <input
+                          type="text"
+                          name="subject"
+                          required
+                          value={formData.subject}
+                          onChange={handleChange}
+                          placeholder="Subject of message"
+                          className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+                        />
+                      </div>
+                    </div>
 
-                <div className="pt-4">
-                  <button
-                    type="submit"
-                    disabled={submitted}
-                    className="w-full bg-slate-950 hover:bg-slate-800 text-white font-extrabold py-3 px-6 rounded-xl transition duration-300 hover:cursor-pointer disabled:opacity-50 text-xs tracking-wider uppercase"
-                  >
-                    {submitted ? 'Sending...' : 'Submit Message'}
-                  </button>
-                </div>
-              </form>
+                    <div>
+                      <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Your Message *</label>
+                      <textarea
+                        name="message"
+                        required
+                        rows={5}
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Type your message here..."
+                        className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+                      ></textarea>
+                    </div>
+
+                    <div className="pt-4">
+                      <button
+                        type="submit"
+                        disabled={submitted}
+                        className="w-full bg-slate-950 hover:bg-slate-800 text-white font-extrabold py-3.5 px-6 rounded-xl transition duration-300 hover:cursor-pointer disabled:bg-slate-300 disabled:cursor-not-allowed text-xs tracking-wider uppercase flex items-center justify-center gap-2"
+                      >
+                        {submitted ? (
+                          <>
+                            <Icon icon="lucide:loader-2" className="animate-spin" width={16} />
+                            Sending Message...
+                          </>
+                        ) : (
+                          'Submit Message'
+                        )}
+                      </button>
+                    </div>
+                  </form>
+                </>
+              )}
             </div>
 
           </div>

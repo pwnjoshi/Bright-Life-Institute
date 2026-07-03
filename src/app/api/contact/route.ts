@@ -7,7 +7,12 @@ const targetEmail = process.env.CONTACT_RECEIVER_EMAIL || 'info@brightlife.edu.n
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { formType } = body
+    const { formType, botField } = body
+
+    // Honeypot spam protection: silently filter bot submissions
+    if (botField) {
+      return NextResponse.json({ success: true, message: 'Spam filtered' })
+    }
 
     if (formType === 'contact') {
       const { firstName, lastName, email, subject, message } = body
