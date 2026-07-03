@@ -75,7 +75,7 @@ export async function POST(request: Request) {
       `
 
       const { data, error } = await resend.emails.send({
-        from: 'Bright Life Website <onboarding@resend.dev>',
+        from: 'Bright Life Website <techsangi@brightlife.edu.np>',
         to: targetEmail,
         subject: `[Contact Form] ${subject} - from ${firstName} ${lastName}`,
         html: htmlContent,
@@ -189,7 +189,7 @@ export async function POST(request: Request) {
       `
 
       const { data, error } = await resend.emails.send({
-        from: 'Bright Life Admissions <onboarding@resend.dev>',
+        from: 'Bright Life Admissions <techsangi@brightlife.edu.np>',
         to: targetEmail,
         subject: `[Admission Inquiry] Grade ${grade} registration - from ${firstName} ${lastName}`,
         html: htmlContent,
