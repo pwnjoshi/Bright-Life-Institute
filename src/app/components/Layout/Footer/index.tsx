@@ -1,41 +1,12 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Icon } from '@iconify/react'
 
 const Footer = () => {
   const year = new Date().getFullYear()
-  const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email.trim() || submitting) return
-    setSubmitting(true)
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, formType: 'newsletter' }),
-      })
-      const data = await res.json()
-      if (res.ok && data.success) {
-        setSubscribed(true)
-        setEmail('')
-        setTimeout(() => setSubscribed(false), 5000)
-      } else {
-        alert('Newsletter Error: ' + (data.error || 'Failed to subscribe.'))
-      }
-    } catch (err) {
-      alert('Subscription failed. Please check your connection.')
-    } finally {
-      setSubmitting(false)
-    }
-  }
 
   return (
     <footer className="bg-slate-50 border-t border-slate-200/60 text-slate-600 relative overflow-hidden">
@@ -76,7 +47,7 @@ const Footer = () => {
 
       {/* ── Main Links Section ── */}
       <div className="container mx-auto max-w-7xl px-6 py-20 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8">
           
           {/* Col 1: Brand Info */}
           <div className="space-y-6">
@@ -177,33 +148,6 @@ const Footer = () => {
                 <span>info@brightlife.edu.np</span>
               </li>
             </ul>
-          </div>
-
-          {/* Col 4: Newsletter Box */}
-          <div className="space-y-5">
-            <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider">Newsletter</h4>
-            <p className="text-xs text-slate-500 font-medium leading-relaxed">
-              Subscribe to get tuition batch schedule announcements and study materials.
-            </p>
-            
-            <form onSubmit={handleSubscribe} className="space-y-2">
-              <div className="relative">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter email address"
-                  className="w-full bg-white border border-slate-200 px-4 py-2.5 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-slate-400 transition"
-                />
-                <button
-                  type="submit"
-                  className="absolute right-1 top-1 bottom-1 bg-slate-950 hover:bg-slate-800 text-white px-3 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer"
-                >
-                  {subscribed ? 'Subscribed!' : submitting ? 'Adding...' : 'Join'}
-                </button>
-              </div>
-            </form>
           </div>
 
         </div>
