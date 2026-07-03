@@ -203,7 +203,7 @@ export default function HomePage() {
               <span>Mahendranagar&apos;s Favorite Study Hub</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight text-slate-955 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight text-slate-950 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '100ms' }}>
               Providing Quality Education for the{' '}
               <span className="text-brand-red relative inline-block">
                 Upliftment
@@ -221,7 +221,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4 px-4 sm:px-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               <Link
                 href="/courses"
-                className="bg-slate-955 text-white font-extrabold px-8 py-3.5 rounded-xl hover:bg-slate-800 transition-all duration-300 text-center flex items-center justify-center gap-2 group text-xs sm:text-sm tracking-wider uppercase w-full sm:w-auto"
+                className="bg-slate-950 text-white font-extrabold px-8 py-3.5 rounded-xl hover:bg-slate-800 transition-all duration-300 text-center flex items-center justify-center gap-2 group text-xs sm:text-sm tracking-wider uppercase w-full sm:w-auto"
               >
                 Explore Courses
                 <Icon icon="lucide:arrow-right" className="group-hover:translate-x-1 transition-transform duration-200" />
@@ -251,7 +251,7 @@ export default function HomePage() {
                 className="bg-white p-4 sm:p-8 rounded-2xl border border-slate-100 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-3"
               >
                 <div className="flex justify-between items-start">
-                  <span className="text-2xl sm:text-4xl font-black text-slate-955 tracking-tight">
+                  <span className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight">
                     {stat.number}
                   </span>
                   <span className={`h-8 w-8 rounded-lg flex items-center justify-center shrink-0 ${stat.color}`}>
@@ -388,7 +388,7 @@ export default function HomePage() {
         <div className="container mx-auto max-w-7xl px-4">
           <div className="text-center space-y-3 mb-12 sm:mb-16">
             <span className="text-primary text-xs font-black uppercase tracking-widest">Instructors & Mentors</span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-955">Meet Our Faculty</h2>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950">Meet Our Faculty</h2>
             <div className="h-1.5 w-16 bg-primary mx-auto rounded-full"></div>
           </div>
 
@@ -410,7 +410,7 @@ export default function HomePage() {
                   <span className="bg-blue-50 text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
                     {item.experience} Exp
                   </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-955">{item.name}</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-950">{item.name}</h3>
                   <p className="text-primary text-xs font-extrabold uppercase tracking-wider">{item.role}</p>
                   <p className="text-slate-500 text-xs font-semibold">Specialization: {item.spec}</p>
                 </div>
@@ -435,7 +435,7 @@ export default function HomePage() {
         <div className="container mx-auto max-w-7xl px-4">
           <div className="text-center space-y-3 mb-12 sm:mb-16">
             <span className="text-primary text-xs font-black uppercase tracking-widest">Student Voice</span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-955">Student Success Stories</h2>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950">Student Success Stories</h2>
             <div className="h-1.5 w-16 bg-primary mx-auto rounded-full"></div>
           </div>
 
@@ -469,7 +469,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
-                      <h4 className="font-bold text-slate-955 text-xs sm:text-sm">{item.name}</h4>
+                      <h4 className="font-bold text-slate-950 text-xs sm:text-sm">{item.name}</h4>
                       <span className="bg-emerald-100 text-emerald-600 text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase">
                         Verified
                       </span>
@@ -489,7 +489,7 @@ export default function HomePage() {
         <div className="container mx-auto max-w-3xl px-4">
           <div className="text-center space-y-3 mb-10 sm:mb-12">
             <span className="text-primary text-xs font-black uppercase tracking-widest">FAQ Desk</span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-955">Frequently Asked Questions</h2>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950">Frequently Asked Questions</h2>
             <div className="h-1.5 w-16 bg-primary mx-auto rounded-full"></div>
           </div>
 
@@ -501,7 +501,7 @@ export default function HomePage() {
               >
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full text-left p-4 sm:p-6 font-bold text-slate-955 flex justify-between items-center hover:bg-slate-50/50 transition duration-300 hover:cursor-pointer text-xs sm:text-sm md:text-base gap-3"
+                  className="w-full text-left p-4 sm:p-6 font-bold text-slate-950 flex justify-between items-center hover:bg-slate-50/50 transition duration-300 hover:cursor-pointer text-xs sm:text-sm md:text-base gap-3"
                 >
                   <span className="flex items-center gap-2.5 sm:gap-3 leading-snug">
                     <Icon icon="lucide:help-circle" className="text-primary shrink-0" width={18} height={18} />

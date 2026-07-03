@@ -20,7 +20,7 @@ export default function TermsPage() {
             <span className="bg-brand-red text-white text-[9px] font-black px-2.5 py-0.5 rounded-full mr-1">LEGAL</span>
             Terms & Conditions
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-955 leading-tight">Terms & Conditions</h1>
+          <h1 className="text-4xl sm:text-5xl font-black text-slate-950 leading-tight">Terms & Conditions</h1>
           <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Last updated: July 2026. General terms governing student registration and academic enrollment.
           </p>
