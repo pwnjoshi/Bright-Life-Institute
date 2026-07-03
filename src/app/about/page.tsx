@@ -81,33 +81,72 @@ export default function AboutPage() {
 
       {/* Welcome Section */}
       <section className="py-24 bg-white scroll-reveal">
-        <div className="container mx-auto max-w-4xl px-4 text-center">
-          <div className="space-y-8">
-            <div className="space-y-2">
-              <span className="text-brand-red text-xs font-bold uppercase tracking-widest">Our Story</span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 leading-tight">
-                Welcome to Bright Life Educational Institute
-              </h2>
-              <div className="h-0.5 w-12 bg-brand-red rounded-full mx-auto mt-4"></div>
-            </div>
+        <div className="container mx-auto max-w-6xl px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <div className="space-y-6 text-slate-600 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto font-medium">
-              <p>
-                Bright Life had a very humble beginning in 2005. It was set up with a clear vision: to impart top-tier quality education and provide proper direction to students aspiring for academic success and career growth in their choice of fields.
-              </p>
-              <p>
-                Over the past two decades, we have evolved into Mahendranagar&apos;s premier coaching hub. We focus not just on textbook learning, but on building strong conceptual foundations, exam strategies, and overall confidence.
-              </p>
+            {/* Left Graphic Block */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="relative p-10 bg-slate-950 text-white rounded-3xl overflow-hidden shadow-xl border border-slate-900">
+                {/* Floating ambient colored blur circles inside the card */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-yellow/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-brand-red/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <div className="relative z-10 space-y-4">
+                  <div className="inline-flex items-center gap-1.5 bg-brand-yellow text-slate-950 px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-xs">
+                    <Icon icon="lucide:sparkles" width={10} />
+                    Leading Institute
+                  </div>
+                  <h3 className="text-3xl font-extrabold leading-tight text-white">
+                    20+ Years of Academic Excellence
+                  </h3>
+                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-medium">
+                    Since 2005, we have committed ourselves to preparing students for school boards, entrance tests, and competitive government career tracks.
+                  </p>
+                  
+                  <div className="pt-4 border-t border-white/10 flex items-center gap-6">
+                    <div>
+                      <p className="text-2xl font-black text-brand-yellow">5K+</p>
+                      <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Students Taught</p>
+                    </div>
+                    <div className="h-8 w-px bg-white/10"></div>
+                    <div>
+                      <p className="text-2xl font-black text-brand-red">100%</p>
+                      <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Success Focus</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="pt-6 flex flex-wrap gap-4 justify-center">
-              <Link href="/courses" className="bg-slate-950 text-white font-extrabold px-7 py-3.5 rounded-xl hover:bg-slate-800 transition duration-300 text-xs tracking-wider uppercase">
-                Explore Courses
-              </Link>
-              <Link href="/admission" className="border border-slate-200 text-slate-950 hover:bg-slate-50 font-extrabold px-7 py-3.5 rounded-xl transition duration-300 text-xs tracking-wider uppercase">
-                Apply Online
-              </Link>
+            {/* Right Story Text Block */}
+            <div className="lg:col-span-7 space-y-6 lg:pl-4">
+              <div className="space-y-2">
+                <span className="text-brand-red text-xs font-black uppercase tracking-widest">Our Story</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-955 leading-tight">
+                  Welcome to Bright Life Educational Institute
+                </h2>
+                <div className="h-[2px] w-8 bg-brand-red rounded-full"></div>
+              </div>
+
+              <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                <p>
+                  Bright Life had a very humble beginning in 2005. It was set up with a clear vision: to impart top-tier quality education and provide proper direction to students aspiring for academic success and career growth in their choice of fields.
+                </p>
+                <p>
+                  Over the past two decades, we have evolved into Mahendranagar&apos;s premier coaching hub. We focus not just on textbook learning, but on building strong conceptual foundations, exam strategies, and overall confidence.
+                </p>
+              </div>
+
+              <div className="pt-4 flex flex-wrap gap-4">
+                <Link href="/courses" className="bg-slate-950 text-white font-extrabold px-6 py-3.5 rounded-xl hover:bg-slate-800 transition duration-300 text-xs tracking-wider uppercase">
+                  Explore Courses
+                </Link>
+                <Link href="/admission" className="border border-slate-200 text-slate-950 hover:bg-slate-50 font-extrabold px-6 py-3.5 rounded-xl transition duration-300 text-xs tracking-wider uppercase">
+                  Apply Online
+                </Link>
+              </div>
             </div>
+
           </div>
         </div>
       </section>

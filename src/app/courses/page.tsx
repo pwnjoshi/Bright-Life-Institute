@@ -141,10 +141,6 @@ export default function CoursesPage() {
                       <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-black tracking-wider uppercase border border-slate-100 bg-slate-50 text-slate-600`}>
                         {course.badge}
                       </span>
-                      <div className="flex items-center gap-1 text-slate-400 text-xs font-semibold">
-                        <Icon icon="lucide:clock" width={13} />
-                        <span>{course.duration}</span>
-                      </div>
                     </div>
 
                     {/* Course details & icon header */}
@@ -154,10 +150,6 @@ export default function CoursesPage() {
                       </div>
                       <div className="min-w-0">
                         <h3 className="text-base font-bold text-slate-900 leading-snug group-hover:text-brand-red transition duration-200">{course.name}</h3>
-                        <p className="text-slate-400 text-[10px] font-semibold mt-1 flex items-center gap-1">
-                          <Icon icon="lucide:calendar" width={11} />
-                          <span>Slot: {course.time}</span>
-                        </p>
                       </div>
                     </div>
 
@@ -167,18 +159,10 @@ export default function CoursesPage() {
                   </div>
 
                   {/* Enrollment action footer inside card */}
-                  <div className="pt-6 mt-6 border-t border-slate-50 flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <div className="flex items-center gap-1 text-amber-400">
-                        <Icon icon="material-symbols:star-rounded" width={16} height={16} />
-                        <span className="text-xs font-black text-slate-900">{course.rating}</span>
-                      </div>
-                      <span className="text-[10px] text-slate-400 font-semibold">{course.students} Learners</span>
-                    </div>
-
+                  <div className="pt-4 mt-6 border-t border-slate-50">
                     <Link
                       href="/admission"
-                      className="bg-slate-950 text-white hover:bg-slate-800 font-extrabold px-4 py-2 rounded-xl text-[10px] uppercase tracking-wider transition duration-200 hover:cursor-pointer"
+                      className="bg-slate-950 text-white hover:bg-slate-800 font-extrabold px-5 py-2.5 rounded-xl text-[10px] uppercase tracking-wider transition duration-200 hover:cursor-pointer w-full block text-center"
                     >
                       Enroll Now
                     </Link>
