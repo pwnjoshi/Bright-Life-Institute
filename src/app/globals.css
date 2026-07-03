@@ -47,12 +47,16 @@
     @apply py-14
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-title
+  }
+
   h1 {
-    @apply font-title text-black md:text-7xl sm:text-6xl text-5xl font-black
+    @apply text-black md:text-7xl sm:text-6xl text-5xl font-black
   }
 
   h2 {
-    @apply font-title text-black sm:text-5xl text-4xl font-extrabold
+    @apply text-black sm:text-5xl text-4xl font-extrabold
   }
 }
 

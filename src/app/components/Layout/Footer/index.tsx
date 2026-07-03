@@ -57,12 +57,12 @@ const Footer = () => {
 
       {/* ── Main Links Section ── */}
       <div className="container mx-auto max-w-7xl px-6 py-20 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           
           {/* Col 1: Brand Info */}
-          <div className="space-y-6 lg:col-span-4">
+          <div className="space-y-6">
             <div className="space-y-2.5">
-              <span className="text-slate-950 text-xl font-extrabold tracking-tight">Bright Life</span>
+              <span className="text-slate-955 text-xl font-extrabold tracking-tight">Bright Life</span>
               <div className="text-[9px] text-brand-red font-black uppercase tracking-widest flex items-center gap-1.5">
                 <span className="h-1.5 w-1.5 bg-brand-yellow rounded-full"></span>
                 Educational Institute
@@ -105,7 +105,7 @@ const Footer = () => {
           </div>
 
           {/* Col 2: Quick Links */}
-          <div className="space-y-5 lg:col-span-2 lg:col-start-6">
+          <div className="space-y-5">
             <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-3">
               {[
@@ -130,7 +130,7 @@ const Footer = () => {
           </div>
 
           {/* Col 3: Newsletter Box */}
-          <div className="space-y-5 lg:col-span-3">
+          <div className="space-y-5">
             <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider">Newsletter</h4>
             <p className="text-xs text-slate-500 font-medium leading-relaxed">
               Subscribe to get tuition batch schedule announcements and study materials.
@@ -148,7 +148,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="absolute right-1 top-1 bottom-1 bg-slate-950 hover:bg-slate-800 text-white px-3 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer"
+                  className="absolute right-1 top-1 bottom-1 bg-slate-955 hover:bg-slate-800 text-white px-3 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer"
                 >
                   {subscribed ? 'Subscribed!' : 'Join'}
                 </button>
@@ -157,7 +157,7 @@ const Footer = () => {
           </div>
 
           {/* Col 4: Contact Info */}
-          <div className="space-y-5 lg:col-span-3 lg:col-start-10">
+          <div className="space-y-5">
             <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider">Get in Touch</h4>
             <ul className="space-y-3.5">
               <li className="flex items-start gap-3 text-xs sm:text-sm text-slate-500 font-medium">
