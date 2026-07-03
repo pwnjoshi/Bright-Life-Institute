@@ -26,8 +26,16 @@ export async function POST(request: Request) {
           <div style="background-color: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid #111827; margin-top: 15px;">
             <p style="margin: 0; white-space: pre-wrap; font-style: italic;">"${message}"</p>
           </div>
-          <hr style="border: 0; border-top: 1px solid #e2e8f0; margin-top: 30px; margin-bottom: 10px;" />
-          <p style="font-size: 11px; color: #64748b; margin: 0;">Sent via Bright Life Educational Institute Website</p>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 10px;">
+            <tr>
+              <td style="font-size: 11px; color: #64748b; font-family: sans-serif;">
+                Sent via Bright Life Educational Institute Website
+              </td>
+              <td align="right" style="font-size: 11px; color: #64748b; font-family: sans-serif;">
+                Powered by <a href="https://techsangi.com.np" style="color: #ff5b5b; text-decoration: none; font-weight: bold;">Tech Sangi</a>
+              </td>
+            </tr>
+          </table>
         </div>
       `
 
@@ -78,8 +86,16 @@ export async function POST(request: Request) {
             <p><strong>Other Courses Selected:</strong> ${otherCourses || 'None'}</p>
             <p><strong>Preferred Time Slot:</strong> ${convenientTime}</p>
           </div>
-          <hr style="border: 0; border-top: 1px solid #e2e8f0; margin-top: 30px; margin-bottom: 10px;" />
-          <p style="font-size: 11px; color: #64748b; margin: 0;">Sent via Bright Life Educational Institute Website</p>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 10px;">
+            <tr>
+              <td style="font-size: 11px; color: #64748b; font-family: sans-serif;">
+                Sent via Bright Life Educational Institute Website
+              </td>
+              <td align="right" style="font-size: 11px; color: #64748b; font-family: sans-serif;">
+                Powered by <a href="https://techsangi.com.np" style="color: #ff5b5b; text-decoration: none; font-weight: bold;">Tech Sangi</a>
+              </td>
+            </tr>
+          </table>
         </div>
       `
 
