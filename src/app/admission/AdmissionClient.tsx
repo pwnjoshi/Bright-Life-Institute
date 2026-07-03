@@ -168,7 +168,7 @@ export default function AdmissionClient() {
     <div className="bg-white min-h-screen">
       
       {/* Premium Typographic Header (Light Theme) */}
-      <section className="relative pt-40 pb-20 bg-slate-50/50 border-b border-slate-100 overflow-hidden text-center">
+      <section className="relative pt-32 pb-12 sm:pt-40 sm:pb-20 bg-slate-50/50 border-b border-slate-100 overflow-hidden text-center">
         {/* Soft light background glow orbs */}
         <div className="absolute top-10 left-[15%] h-64 w-64 rounded-full bg-brand-yellow/5 blur-3xl pointer-events-none" />
         <div className="absolute bottom-5 right-[15%] h-64 w-64 rounded-full bg-brand-red/4 blur-3xl pointer-events-none" />
@@ -177,24 +177,24 @@ export default function AdmissionClient() {
         <div className="absolute inset-0 bg-[radial-gradient(circle,#00000004_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
         <div className="container mx-auto max-w-4xl px-4 relative z-10 space-y-4 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 bg-white border border-slate-200/60 shadow-xs pl-2 pr-3.5 py-1 rounded-full text-[10px] font-black tracking-wider uppercase text-slate-600">
+          <div className="inline-flex items-center gap-2 bg-white border border-slate-200/60 shadow-xs pl-2 pr-3.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase text-slate-600">
             <span className="bg-brand-red text-white text-[9px] font-black px-2.5 py-0.5 rounded-full mr-1">ESTD. 2005</span>
             Admission
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-950 leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
             Online Admission & Enrollment
           </h1>
-          <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-slate-500 text-xs sm:text-base max-w-xl mx-auto leading-relaxed">
             Submit your details below to register for regular tuition or university coaching batches.
           </p>
         </div>
       </section>
 
       {/* Form & Success Section */}
-      <section className="py-20 bg-white">
+      <section className="py-10 sm:py-20 bg-white">
         <div className="container mx-auto max-w-3xl px-4">
           
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-100/90 shadow-sm space-y-8">
+          <div className="bg-white rounded-3xl p-6 sm:p-12 border border-slate-100/90 shadow-sm space-y-8">
             
             {isSuccess ? (
               /* Custom Success Confirmation Screen */

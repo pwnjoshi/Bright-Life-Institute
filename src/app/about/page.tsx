@@ -57,7 +57,7 @@ export default function AboutPage() {
     <div className="bg-white min-h-screen">
       
       {/* Premium Typographic Header (Light Theme) */}
-      <section className="relative pt-40 pb-20 bg-slate-50/50 border-b border-slate-100 overflow-hidden text-center">
+      <section className="relative pt-32 pb-12 sm:pt-40 sm:pb-20 bg-slate-50/50 border-b border-slate-100 overflow-hidden text-center">
         {/* Soft light background glow orbs */}
         <div className="absolute top-10 left-[15%] h-64 w-64 rounded-full bg-brand-yellow/5 blur-3xl pointer-events-none" />
         <div className="absolute bottom-5 right-[15%] h-64 w-64 rounded-full bg-brand-red/4 blur-3xl pointer-events-none" />
@@ -66,27 +66,27 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle,#00000004_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
         <div className="container mx-auto max-w-4xl px-4 relative z-10 space-y-4 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 bg-white border border-slate-200/60 shadow-xs pl-2 pr-3.5 py-1 rounded-full text-[10px] font-black tracking-wider uppercase text-slate-600">
+          <div className="inline-flex items-center gap-2 bg-white border border-slate-200/60 shadow-xs pl-2 pr-3.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase text-slate-600">
             <span className="bg-brand-red text-white text-[9px] font-black px-2.5 py-0.5 rounded-full mr-1">ESTD. 2005</span>
             About Us
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-950 leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
             About Bright Life
           </h1>
-          <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed font-medium">
+          <p className="text-slate-500 text-xs sm:text-base max-w-xl mx-auto leading-relaxed font-medium">
             Mahendranagar&apos;s leading tutoring and coaching academy, committed to academic excellence.
           </p>
         </div>
       </section>
 
       {/* Welcome Section */}
-      <section className="py-24 bg-white scroll-reveal">
+      <section className="py-12 sm:py-24 bg-white scroll-reveal">
         <div className="container mx-auto max-w-6xl px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
             
             {/* Left Graphic Block */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="relative p-10 bg-slate-950 text-white rounded-3xl overflow-hidden shadow-xl border border-slate-900">
+              <div className="relative p-6 sm:p-10 bg-slate-950 text-white rounded-3xl overflow-hidden shadow-xl border border-slate-900">
                 {/* Floating ambient colored blur circles inside the card */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-yellow/10 rounded-full blur-2xl pointer-events-none"></div>
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-brand-red/10 rounded-full blur-2xl pointer-events-none"></div>
@@ -96,7 +96,7 @@ export default function AboutPage() {
                     <Icon icon="lucide:sparkles" width={10} />
                     Leading Institute
                   </div>
-                  <h3 className="text-3xl font-extrabold leading-tight text-white">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold leading-tight text-white">
                     20+ Years of Academic Excellence
                   </h3>
                   <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-medium">
@@ -105,12 +105,12 @@ export default function AboutPage() {
                   
                   <div className="pt-4 border-t border-white/10 flex items-center gap-6">
                     <div>
-                      <p className="text-2xl font-black text-brand-yellow">5K+</p>
+                      <p className="text-xl sm:text-2xl font-black text-brand-yellow">5K+</p>
                       <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Students Taught</p>
                     </div>
                     <div className="h-8 w-px bg-white/10"></div>
                     <div>
-                      <p className="text-2xl font-black text-brand-red">100%</p>
+                      <p className="text-xl sm:text-2xl font-black text-brand-red">100%</p>
                       <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Success Focus</p>
                     </div>
                   </div>
@@ -122,13 +122,13 @@ export default function AboutPage() {
             <div className="lg:col-span-7 space-y-6 lg:pl-4">
               <div className="space-y-2">
                 <span className="text-brand-red text-xs font-black uppercase tracking-widest">Our Story</span>
-                 <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 leading-tight">
+                 <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
                   Welcome to Bright Life Educational Institute
                 </h2>
                 <div className="h-[2px] w-8 bg-brand-red rounded-full"></div>
               </div>
 
-              <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+              <div className="space-y-4 text-slate-655 text-xs sm:text-base leading-relaxed font-medium">
                 <p>
                   Bright Life had a very humble beginning in 2005. It was set up with a clear vision: to impart top-tier quality education and provide proper direction to students aspiring for academic success and career growth in their choice of fields.
                 </p>
@@ -137,11 +137,11 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="pt-4 flex flex-wrap gap-4">
-                <Link href="/courses" className="bg-slate-950 text-white font-extrabold px-6 py-3.5 rounded-xl hover:bg-slate-800 transition duration-300 text-xs tracking-wider uppercase">
+              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                <Link href="/courses" className="bg-slate-950 text-white font-extrabold px-6 py-3.5 rounded-xl hover:bg-slate-800 transition duration-300 text-xs tracking-wider uppercase text-center w-full sm:w-auto">
                   Explore Courses
                 </Link>
-                <Link href="/admission" className="border border-slate-200 text-slate-950 hover:bg-slate-50 font-extrabold px-6 py-3.5 rounded-xl transition duration-300 text-xs tracking-wider uppercase">
+                <Link href="/admission" className="border border-slate-200 text-slate-950 hover:bg-slate-50 font-extrabold px-6 py-3.5 rounded-xl transition duration-300 text-xs tracking-wider uppercase text-center w-full sm:w-auto">
                   Apply Online
                 </Link>
               </div>
@@ -152,17 +152,17 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-20 bg-slate-50/50 border-t border-slate-100 scroll-reveal">
+      <section className="py-12 sm:py-20 bg-slate-50/50 border-t border-slate-100 scroll-reveal">
         <div className="container mx-auto max-w-6xl px-4">
-          <div className="text-center space-y-3 mb-16">
+          <div className="text-center space-y-3 mb-12 sm:mb-16">
             <span className="text-slate-500 text-xs font-bold uppercase tracking-widest">Guiding Principles</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-950">Our Core Values</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Our Core Values</h2>
             <div className="h-[2px] w-8 bg-brand-red mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {values.map((val, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-slate-250 transition-all duration-350 shadow-xs space-y-4">
+              <div key={idx} className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 hover:border-slate-250 transition-all duration-350 shadow-xs space-y-4">
                 <div className="h-10 w-10 rounded-xl bg-slate-50 text-brand-red flex items-center justify-center border border-slate-100">
                   <Icon icon={val.icon} width={18} height={18} />
                 </div>
@@ -175,20 +175,20 @@ export default function AboutPage() {
       </section>
 
       {/* Guarantees Section */}
-      <section className="py-24 bg-white border-t border-slate-100 scroll-reveal">
+      <section className="py-12 sm:py-24 bg-white border-t border-slate-100 scroll-reveal">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="text-center space-y-3 mb-16">
+          <div className="text-center space-y-3 mb-12 sm:mb-16">
             <span className="text-slate-500 text-xs font-bold uppercase tracking-widest">Our Commitment</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950">Guarantees From Bright Life</h2>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900">Guarantees From Bright Life</h2>
             <div className="h-[2px] w-8 bg-brand-red mx-auto rounded-full"></div>
-            <p className="text-slate-500 text-sm max-w-md mx-auto pt-2 font-medium">We stand for quality, consistency, and unparalleled academic support.</p>
+            <p className="text-slate-500 text-xs sm:text-sm max-w-md mx-auto pt-2 font-medium">We stand for quality, consistency, and unparalleled academic support.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {guarantees.map((item, idx) => (
               <div
                 key={idx}
-                className="relative bg-slate-50/50 hover:bg-white rounded-2xl p-8 border border-slate-100 hover:border-slate-200/80 hover:shadow-md transition-all duration-300 group"
+                className="relative bg-slate-50/50 hover:bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 hover:border-slate-200/80 hover:shadow-md transition-all duration-300 group"
               >
                 {/* Icon indicator */}
                 <div className="h-10 w-10 rounded-xl bg-white border border-slate-100 text-brand-red flex items-center justify-center shrink-0 mb-6 group-hover:scale-105 transition duration-300">

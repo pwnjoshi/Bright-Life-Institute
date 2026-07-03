@@ -42,7 +42,7 @@ export default function StaffsPage() {
     <div className="bg-white min-h-screen">
 
       {/* Premium Typographic Header (Light Theme) */}
-      <section className="relative pt-40 pb-20 bg-slate-50/50 border-b border-slate-100 overflow-hidden text-center">
+      <section className="relative pt-32 pb-12 sm:pt-40 sm:pb-20 bg-slate-50/50 border-b border-slate-100 overflow-hidden text-center">
         {/* Soft light background glow orbs */}
         <div className="absolute top-10 left-[15%] h-64 w-64 rounded-full bg-brand-yellow/5 blur-3xl pointer-events-none" />
         <div className="absolute bottom-5 right-[15%] h-64 w-64 rounded-full bg-brand-red/4 blur-3xl pointer-events-none" />
@@ -51,21 +51,21 @@ export default function StaffsPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle,#00000004_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
         <div className="container mx-auto max-w-4xl px-4 relative z-10 space-y-4 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 bg-white border border-slate-200/60 shadow-xs pl-2 pr-3.5 py-1 rounded-full text-[10px] font-black tracking-wider uppercase text-slate-600">
+          <div className="inline-flex items-center gap-2 bg-white border border-slate-200/60 shadow-xs pl-2 pr-3.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase text-slate-600">
             <span className="bg-brand-red text-white text-[9px] font-black px-2.5 py-0.5 rounded-full mr-1">ESTD. 2005</span>
             Faculty
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-950 leading-tight">Our Faculty</h1>
-          <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed font-medium">
+          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">Our Faculty</h1>
+          <p className="text-slate-500 text-xs sm:text-base max-w-xl mx-auto leading-relaxed font-medium">
             Experienced educators and administrators dedicated to shaping academic excellence.
           </p>
         </div>
       </section>
 
       {/* Founder highlight */}
-      <div className="bg-slate-50 border-b border-slate-100 py-16 px-4">
+      <div className="bg-slate-50 border-b border-slate-100 py-10 sm:py-16 px-4">
         <div className="container mx-auto max-w-3xl">
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 text-center sm:text-left">
             <div className="relative h-20 w-20 rounded-2xl overflow-hidden border border-slate-200 shadow-sm shrink-0">
               <Image
                 src="/images/uploads/sudarsan-sit-e1668217849758-300x292.jpg"
@@ -74,11 +74,11 @@ export default function StaffsPage() {
                 className="object-cover"
               />
             </div>
-            <div className="text-center sm:text-left space-y-2">
+            <div className="space-y-2">
               <span className="text-[10px] font-bold uppercase tracking-widest text-brand-red">Founder & Director</span>
-              <h2 className="text-2xl font-bold text-slate-950">Mr. Sudarsan Pd. Bhatt</h2>
-              <p className="text-slate-500 text-sm font-semibold">M.Ed. Mathematics · 20+ Years Experience</p>
-              <p className="text-slate-600 text-sm leading-relaxed max-w-xl font-medium">
+              <h2 className="text-2xl font-bold text-slate-900">Mr. Sudarsan Pd. Bhatt</h2>
+              <p className="text-slate-500 text-xs font-semibold">M.Ed. Mathematics · 20+ Years Experience</p>
+              <p className="text-slate-655 text-xs sm:text-sm leading-relaxed max-w-xl font-medium">
                 &ldquo;As the founder of Bright Life, my goal has always been to provide quality coaching and study strategies that help every student achieve their highest potential.&rdquo;
               </p>
             </div>
@@ -86,17 +86,17 @@ export default function StaffsPage() {
         </div>
       </div>
 
-      <div className="container mx-auto max-w-6xl px-4 py-16 space-y-16">
+      <div className="container mx-auto max-w-6xl px-4 py-10 sm:py-16 space-y-12 sm:space-y-16">
 
         {/* Teaching Faculty */}
         <div>
-          <div className="mb-10 text-center space-y-2">
+          <div className="mb-8 sm:mb-10 text-center space-y-2">
             <span className="text-slate-500 text-xs font-bold uppercase tracking-widest">Teaching Staff</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-950">Our Excellent Teaching Faculty</h2>
+            <h2 className="text-xl sm:text-3xl font-extrabold text-slate-900">Our Excellent Teaching Faculty</h2>
             <div className="h-[2px] w-8 bg-brand-red mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {teachingFaculty.map((faculty, idx) => (
               <div
                 key={idx}

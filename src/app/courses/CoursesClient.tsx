@@ -50,7 +50,7 @@ export default function CoursesClient() {
     <div className="bg-white min-h-screen">
       
       {/* Premium Typographic Header (Light Theme) */}
-      <section className="relative pt-40 pb-20 bg-slate-50/50 border-b border-slate-100 overflow-hidden text-center">
+      <section className="relative pt-32 pb-12 sm:pt-40 sm:pb-20 bg-slate-50/50 border-b border-slate-100 overflow-hidden text-center">
         {/* Soft light background glow orbs */}
         <div className="absolute top-10 left-[15%] h-64 w-64 rounded-full bg-brand-yellow/5 blur-3xl pointer-events-none" />
         <div className="absolute bottom-5 right-[15%] h-64 w-64 rounded-full bg-brand-red/4 blur-3xl pointer-events-none" />
@@ -59,25 +59,25 @@ export default function CoursesClient() {
         <div className="absolute inset-0 bg-[radial-gradient(circle,#00000004_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
         <div className="container mx-auto max-w-4xl px-4 relative z-10 space-y-4 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 bg-white border border-slate-200/60 shadow-xs pl-2 pr-3.5 py-1 rounded-full text-[10px] font-black tracking-wider uppercase text-slate-600">
+          <div className="inline-flex items-center gap-2 bg-white border border-slate-200/60 shadow-xs pl-2 pr-3.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase text-slate-600">
             <span className="bg-brand-red text-white text-[9px] font-black px-2.5 py-0.5 rounded-full mr-1">ESTD. 2005</span>
             Courses
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-950 leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
             Our Courses & Programs
           </h1>
-          <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed font-medium">
+          <p className="text-slate-500 text-xs sm:text-base max-w-xl mx-auto leading-relaxed font-medium">
             Choose from a wide variety of courses designed to empower students and career-seekers.
           </p>
         </div>
       </section>
 
       {/* Courses List Section */}
-      <section className="py-16 bg-white">
+      <section className="py-10 sm:py-16 bg-white">
         <div className="container mx-auto max-w-7xl px-4">
           
           {/* Search Box and Filter tabs container */}
-          <div className="max-w-3xl mx-auto mb-16 space-y-6">
+          <div className="max-w-3xl mx-auto mb-10 sm:mb-16 space-y-6">
             {/* Search Input */}
             <div className="relative">
               <span className="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 pointer-events-none">
@@ -101,7 +101,7 @@ export default function CoursesClient() {
             </div>
 
             {/* Filter Tabs */}
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex overflow-x-auto sm:flex-wrap sm:justify-center gap-2 pb-3 -mx-4 px-4 scrollbar-none select-none">
               {[
                 { id: 'all', label: 'All Courses' },
                 { id: 'school-prep', label: 'School & SEE Prep' },
@@ -112,7 +112,7 @@ export default function CoursesClient() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as any)}
-                  className={`px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm transition duration-300 hover:cursor-pointer ${
+                  className={`px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition duration-300 hover:cursor-pointer whitespace-nowrap ${
                     activeTab === tab.id
                       ? 'bg-slate-950 text-white shadow-md'
                       : 'bg-slate-50 border border-slate-100 text-slate-600 hover:bg-slate-100'

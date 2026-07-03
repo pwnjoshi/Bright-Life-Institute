@@ -86,7 +86,7 @@ const Footer = () => {
                 <Icon icon="lucide:facebook" width={17} height={17} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/brightlife_edu/"
                 target="_blank"
                 rel="noreferrer"
                 className="h-10 w-10 rounded-xl bg-white border border-slate-200/80 hover:bg-pink-600 hover:text-white hover:border-pink-600 text-slate-500 flex items-center justify-center transition-all duration-300 shadow-2xs"
