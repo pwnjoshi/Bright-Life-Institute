@@ -272,7 +272,6 @@ export default function HomePage() {
           <div className="text-center space-y-3 mb-16">
             <span className="text-primary text-xs font-bold uppercase tracking-wider">Why Choose Us</span>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900">What makes us different</h2>
-          </div>="text-3xl sm:text-5xl font-black text-slate-950">What makes us different</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
