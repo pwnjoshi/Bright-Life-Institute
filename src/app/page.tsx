@@ -234,9 +234,6 @@ export default function HomePage() {
                 <Icon icon="lucide:user-plus" width={16} height={16} />
               </Link>
             </div>
-
-
-
           </div>
         </div>
       </section>
@@ -251,7 +248,7 @@ export default function HomePage() {
                 className="bg-white p-4 sm:p-8 rounded-2xl border border-slate-100 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-3"
               >
                 <div className="flex justify-between items-start">
-                  <span className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight">
+                  <span className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
                     {stat.number}
                   </span>
                   <span className={`h-8 w-8 rounded-lg flex items-center justify-center shrink-0 ${stat.color}`}>
@@ -259,8 +256,8 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="space-y-1">
-                  <p className="text-xs sm:text-sm font-black text-slate-800 leading-tight">{stat.label}</p>
-                  <p className="text-[10px] sm:text-xs text-slate-400 font-semibold leading-normal">{stat.desc}</p>
+                  <p className="text-xs sm:text-sm font-bold text-slate-800 leading-tight">{stat.label}</p>
+                  <p className="text-[10px] sm:text-xs text-slate-500 font-medium leading-normal">{stat.desc}</p>
                 </div>
               </div>
             ))}
@@ -273,8 +270,9 @@ export default function HomePage() {
         <div className="container mx-auto max-w-7xl px-4">
 
           <div className="text-center space-y-3 mb-16">
-            <span className="text-primary text-xs font-black uppercase tracking-widest">Why Choose Us</span>
-            <h2 className="text-3xl sm:text-5xl font-black text-slate-950">What makes us different</h2>
+            <span className="text-primary text-xs font-bold uppercase tracking-wider">Why Choose Us</span>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900">What makes us different</h2>
+          </div>="text-3xl sm:text-5xl font-black text-slate-950">What makes us different</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
