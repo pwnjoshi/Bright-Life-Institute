@@ -4,6 +4,82 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { Icon } from '@iconify/react'
 
+interface DropdownProps {
+  label: string
+  name: string
+  value: string
+  options: { label: string; value: string }[]
+  placeholder: string
+  required?: boolean
+  onChange: (name: string, value: string) => void
+}
+
+function FormDropdown({ label, name, value, options, placeholder, onChange }: DropdownProps) {
+  const [isOpen, setIsOpen] = useState(false)
+  const dropdownRef = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const selectedOption = options.find(opt => opt.value === value)
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">{label}</label>
+      
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-all flex items-center justify-between cursor-pointer"
+      >
+        <span className={value ? 'text-slate-800 font-semibold' : 'text-slate-400 font-medium'}>
+          {selectedOption ? selectedOption.label : placeholder}
+        </span>
+        <Icon 
+          icon="lucide:chevron-down" 
+          className={`text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-slate-800' : ''}`} 
+          width={16} 
+        />
+      </button>
+
+      {isOpen && (
+        <div className="absolute z-50 w-full mt-2 bg-white border border-slate-200/60 rounded-2xl shadow-xl max-h-60 overflow-y-auto animate-fade-in-up py-1.5">
+          {options.map((opt) => {
+            const isSelected = opt.value === value
+            return (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() => {
+                  onChange(name, opt.value)
+                  setIsOpen(false)
+                }}
+                className={`w-full text-left px-4 py-2.5 text-sm transition-colors flex items-center justify-between hover:cursor-pointer ${
+                  isSelected 
+                    ? 'bg-slate-50 text-slate-950 font-black border-l-2 border-brand-red' 
+                    : 'text-slate-600 font-medium hover:bg-slate-50 hover:text-slate-900'
+                }`}
+              >
+                <span>{opt.label}</span>
+                {isSelected && (
+                  <Icon icon="lucide:check" className="text-brand-red" width={16} />
+                )}
+              </button>
+            )
+          })}
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function AdmissionClient() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -29,8 +105,18 @@ export default function AdmissionClient() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
+  const handleDropdownChange = (name: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Validate dropdown selections
+    if (!formData.gender || !formData.grade || !formData.convenientTime) {
+      alert('Please fill out all the mandatory dropdown fields (*): Gender, Grade, and Preferred Slot.')
+      return
+    }
 
     // Cooldown verification (30 second rate limit to prevent spam bombing)
     const lastSub = typeof window !== 'undefined' ? localStorage.getItem('last_submit_admission') : null
@@ -95,7 +181,7 @@ export default function AdmissionClient() {
             <span className="bg-brand-red text-white text-[9px] font-black px-2.5 py-0.5 rounded-full mr-1">ESTD. 2005</span>
             Admission
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-950 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-black text-slate-955 leading-tight">
             Online Admission & Enrollment
           </h1>
           <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
@@ -126,13 +212,13 @@ export default function AdmissionClient() {
                 <div className="pt-6 flex flex-wrap gap-4 justify-center">
                   <button
                     onClick={() => setIsSuccess(false)}
-                    className="bg-slate-950 hover:bg-slate-800 text-white font-extrabold px-6 py-3 rounded-xl transition duration-200 text-xs tracking-wider uppercase"
+                    className="bg-slate-955 hover:bg-slate-800 text-white font-extrabold px-6 py-3 rounded-xl transition duration-200 text-xs tracking-wider uppercase"
                   >
                     Register Another Student
                   </button>
                   <Link
                     href="/"
-                    className="border border-slate-200 text-slate-950 hover:bg-slate-50 font-extrabold px-6 py-3 rounded-xl transition duration-200 text-xs tracking-wider uppercase"
+                    className="border border-slate-200 text-slate-955 hover:bg-slate-50 font-extrabold px-6 py-3 rounded-xl transition duration-200 text-xs tracking-wider uppercase"
                   >
                     Go to Homepage
                   </Link>
@@ -226,19 +312,18 @@ export default function AdmissionClient() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Gender *</label>
-                      <select
+                      <FormDropdown
+                        label="Gender *"
                         name="gender"
-                        required
                         value={formData.gender}
-                        onChange={handleChange}
-                        className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors cursor-pointer"
-                      >
-                        <option value="">Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                      </select>
+                        placeholder="Select Gender"
+                        onChange={handleDropdownChange}
+                        options={[
+                          { label: 'Male', value: 'Male' },
+                          { label: 'Female', value: 'Female' },
+                          { label: 'Other', value: 'Other' },
+                        ]}
+                      />
                     </div>
                   </div>
 
@@ -271,28 +356,27 @@ export default function AdmissionClient() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div>
-                      <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Grade / Class *</label>
-                      <select
+                      <FormDropdown
+                        label="Grade / Class *"
                         name="grade"
-                        required
                         value={formData.grade}
-                        onChange={handleChange}
-                        className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors cursor-pointer"
-                      >
-                        <option value="">Select Grade</option>
-                        <option value="Grade 8">Grade 8</option>
-                        <option value="Grade 9">Grade 9</option>
-                        <option value="Grade 10">Grade 10</option>
-                        <option value="Grade 11">Grade 11</option>
-                        <option value="Grade 12">Grade 12</option>
-                        <option value="BBS">BBS</option>
-                        <option value="BBA">BBA</option>
-                        <option value="BSC">B.Sc</option>
-                        <option value="MBS">MBS</option>
-                        <option value="MBM">MBM</option>
-                        <option value="MSC">M.Sc</option>
-                        <option value="Others">Others</option>
-                      </select>
+                        placeholder="Select Grade"
+                        onChange={handleDropdownChange}
+                        options={[
+                          { label: 'Grade 8', value: 'Grade 8' },
+                          { label: 'Grade 9', value: 'Grade 9' },
+                          { label: 'Grade 10', value: 'Grade 10' },
+                          { label: 'Grade 11', value: 'Grade 11' },
+                          { label: 'Grade 12', value: 'Grade 12' },
+                          { label: 'BBS', value: 'BBS' },
+                          { label: 'BBA', value: 'BBA' },
+                          { label: 'B.Sc', value: 'BSC' },
+                          { label: 'MBS', value: 'MBS' },
+                          { label: 'MBM', value: 'MBM' },
+                          { label: 'M.Sc', value: 'MSC' },
+                          { label: 'Others', value: 'Others' },
+                        ]}
+                      />
                     </div>
                     <div>
                       <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Semester / Subject</label>
@@ -306,19 +390,18 @@ export default function AdmissionClient() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-2">Preferred Slot *</label>
-                      <select
+                      <FormDropdown
+                        label="Preferred Slot *"
                         name="convenientTime"
-                        required
                         value={formData.convenientTime}
-                        onChange={handleChange}
-                        className="w-full border border-slate-200/80 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 text-sm text-slate-800 bg-slate-50/50 hover:bg-slate-50 transition-colors cursor-pointer"
-                      >
-                        <option value="">Select Time</option>
-                        <option value="Morning Batch">Morning Batch</option>
-                        <option value="Day Batch">Day Batch</option>
-                        <option value="Evening Batch">Evening Batch</option>
-                      </select>
+                        placeholder="Select Time"
+                        onChange={handleDropdownChange}
+                        options={[
+                          { label: 'Morning Batch', value: 'Morning Batch' },
+                          { label: 'Day Batch', value: 'Day Batch' },
+                          { label: 'Evening Batch', value: 'Evening Batch' },
+                        ]}
+                      />
                     </div>
                   </div>
 

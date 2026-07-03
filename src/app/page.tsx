@@ -214,23 +214,24 @@ export default function HomePage() {
               of Students
             </h1>
 
-            <p className="text-slate-500 text-lg sm:text-xl max-w-2xl mx-auto font-medium leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <p className="text-slate-600 text-sm sm:text-base md:text-[17px] max-w-xl mx-auto font-medium leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Bright Life couples expert live classes, structured resources, and government exam prep to help every student reach their full potential.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            <div className="flex flex-col sm:flex-row gap-3.5 justify-center pt-4 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               <Link
                 href="/courses"
-                className="bg-slate-950 text-white font-extrabold px-8 py-4 rounded-2xl hover:bg-slate-800 transition-all duration-300 text-center flex items-center justify-center gap-2 group"
+                className="bg-slate-950 text-white font-extrabold px-8 py-3.5 rounded-xl hover:bg-slate-800 transition-all duration-300 text-center flex items-center justify-center gap-2 group text-xs sm:text-sm tracking-wider uppercase"
               >
                 Explore Courses
                 <Icon icon="lucide:arrow-right" className="group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               <Link
                 href="/admission"
-                className="bg-brand-yellow text-slate-950 font-extrabold px-8 py-4 rounded-2xl hover:bg-yellow-300 transition-all duration-300 text-center"
+                className="bg-brand-yellow text-slate-950 font-extrabold px-8 py-3.5 rounded-xl hover:bg-yellow-350 transition-all duration-300 text-center flex items-center justify-center gap-2 text-xs sm:text-sm tracking-wider uppercase border border-brand-yellow/30 shadow-xs"
               >
                 Apply Now
+                <Icon icon="lucide:user-plus" width={16} height={16} />
               </Link>
             </div>
 
