@@ -215,14 +215,16 @@ export async function POST(request: Request) {
       try {
         // 1. Get the list of audiences from Resend
         const audiencesList = await resend.audiences.list()
+        const listObj = audiencesList.data as any
         
-        if (audiencesList.data && audiencesList.data.length > 0) {
-          audienceId = audiencesList.data[0].id
+        if (listObj && listObj.data && listObj.data.length > 0) {
+          audienceId = listObj.data[0].id
         } else {
           // 2. If no audience exists, create a default Newsletter list
           const newAudience = await resend.audiences.create({ name: 'Newsletter Subscribers' })
-          if (newAudience.data) {
-            audienceId = newAudience.data.id
+          const newAudienceData = newAudience.data as any
+          if (newAudienceData) {
+            audienceId = newAudienceData.id
           }
         }
 
