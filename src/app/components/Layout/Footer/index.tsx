@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Icon } from '@iconify/react'
 
 const Footer = () => {
@@ -61,11 +62,23 @@ const Footer = () => {
           
           {/* Col 1: Brand Info */}
           <div className="space-y-6">
-            <div className="space-y-2.5">
-              <span className="text-slate-955 text-xl font-extrabold tracking-tight">Bright Life</span>
-              <div className="text-[9px] text-brand-red font-black uppercase tracking-widest flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 bg-brand-yellow rounded-full"></span>
-                Educational Institute
+            <div className="flex items-center gap-3">
+              <Link href="/">
+                <Image
+                  src="/images/logo/logo.png"
+                  alt="Bright Life Logo"
+                  width={40}
+                  height={40}
+                  style={{ width: "auto", height: "40px" }}
+                  quality={100}
+                />
+              </Link>
+              <div className="space-y-0.5">
+                <span className="text-slate-955 text-lg font-extrabold tracking-tight">Bright Life</span>
+                <div className="text-[8px] text-brand-red font-black uppercase tracking-widest flex items-center gap-1">
+                  <span className="h-1 w-1 bg-brand-yellow rounded-full"></span>
+                  Educational Institute
+                </div>
               </div>
             </div>
             
@@ -129,7 +142,26 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Col 3: Newsletter Box */}
+          {/* Col 3: Get in Touch */}
+          <div className="space-y-5">
+            <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider">Get in Touch</h4>
+            <ul className="space-y-3.5">
+              <li className="flex items-start gap-3 text-xs sm:text-sm text-slate-500 font-medium">
+                <Icon icon="lucide:map-pin" className="text-brand-red shrink-0 mt-0.5" width={15} />
+                <span>Campus Road (near Park Old Gate), Bhimdatta-18, Mahendranagar</span>
+              </li>
+              <li className="flex items-center gap-3 text-xs sm:text-sm text-slate-500 font-medium">
+                <Icon icon="lucide:phone" className="text-brand-red shrink-0" width={15} />
+                <span>099-520863 · +977 9858751680</span>
+              </li>
+              <li className="flex items-center gap-3 text-xs sm:text-sm text-slate-500 font-medium">
+                <Icon icon="lucide:mail" className="text-brand-red shrink-0" width={15} />
+                <span>info@brightlife.edu.np</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Newsletter Box */}
           <div className="space-y-5">
             <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider">Newsletter</h4>
             <p className="text-xs text-slate-500 font-medium leading-relaxed">
@@ -154,25 +186,6 @@ const Footer = () => {
                 </button>
               </div>
             </form>
-          </div>
-
-          {/* Col 4: Contact Info */}
-          <div className="space-y-5">
-            <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider">Get in Touch</h4>
-            <ul className="space-y-3.5">
-              <li className="flex items-start gap-3 text-xs sm:text-sm text-slate-500 font-medium">
-                <Icon icon="lucide:map-pin" className="text-brand-red shrink-0 mt-0.5" width={15} />
-                <span>Campus Road (near Park Old Gate), Bhimdatta-18, Mahendranagar</span>
-              </li>
-              <li className="flex items-center gap-3 text-xs sm:text-sm text-slate-500 font-medium">
-                <Icon icon="lucide:phone" className="text-brand-red shrink-0" width={15} />
-                <span>099-520863 · +977 9858751680</span>
-              </li>
-              <li className="flex items-center gap-3 text-xs sm:text-sm text-slate-500 font-medium">
-                <Icon icon="lucide:mail" className="text-brand-red shrink-0" width={15} />
-                <span>info@brightlife.edu.np</span>
-              </li>
-            </ul>
           </div>
 
         </div>
