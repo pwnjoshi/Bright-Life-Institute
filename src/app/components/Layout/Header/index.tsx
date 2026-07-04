@@ -9,7 +9,14 @@ import { Icon } from '@iconify/react/dist/iconify.js'
 import { HeaderItem } from '@/app/types/menu'
 
 const Header: React.FC = () => {
-  const [headerData, setHeaderData] = useState<HeaderItem[]>([])
+  const [headerData, setHeaderData] = useState<HeaderItem[]>([
+    { label: 'Home', href: '/' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Courses', href: '/courses' },
+    { label: 'Our Staffs', href: '/staffs' },
+    { label: 'Offline Admission', href: '/admission' },
+    { label: 'Contact Us', href: '/contact' },
+  ])
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [sticky, setSticky] = useState(false)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
