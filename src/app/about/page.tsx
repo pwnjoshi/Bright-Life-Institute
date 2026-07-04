@@ -92,11 +92,10 @@ export default function AboutPage() {
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-brand-red/10 rounded-full blur-2xl pointer-events-none"></div>
                 
                 <div className="relative z-10 space-y-4">
-                  <div className="inline-flex items-center gap-1.5 bg-brand-yellow text-slate-950 px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-xs">
-                    <Icon icon="lucide:sparkles" width={10} />
+                  <div className="inline-flex items-center bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-brand-yellow to-amber-400 shadow-2xs">
                     Leading Institute
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold leading-tight text-white">
+                  <h3 className="text-2xl sm:text-3xl font-bold leading-tight text-white">
                     20+ Years of Academic Excellence
                   </h3>
                   <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-medium">
@@ -105,12 +104,12 @@ export default function AboutPage() {
                   
                   <div className="pt-4 border-t border-white/10 flex items-center gap-6">
                     <div>
-                      <p className="text-xl sm:text-2xl font-black text-brand-yellow">5K+</p>
+                      <p className="text-xl sm:text-2xl font-bold text-brand-yellow">5K+</p>
                       <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Students Taught</p>
                     </div>
                     <div className="h-8 w-px bg-white/10"></div>
                     <div>
-                      <p className="text-xl sm:text-2xl font-black text-brand-red">100%</p>
+                      <p className="text-xl sm:text-2xl font-bold text-brand-red">100%</p>
                       <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Success Focus</p>
                     </div>
                   </div>
@@ -121,8 +120,8 @@ export default function AboutPage() {
             {/* Right Story Text Block */}
             <div className="lg:col-span-7 space-y-6 lg:pl-4">
               <div className="space-y-2">
-                <span className="text-brand-red text-xs font-black uppercase tracking-widest">Our Story</span>
-                 <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+                <span className="text-brand-red text-xs font-bold uppercase tracking-widest">Our Story</span>
+                 <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 leading-tight">
                   Welcome to Bright Life Educational Institute
                 </h2>
                 <div className="h-[2px] w-8 bg-brand-red rounded-full"></div>
@@ -138,10 +137,10 @@ export default function AboutPage() {
               </div>
 
               <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                <Link href="/courses" className="bg-slate-950 text-white font-extrabold px-6 py-3.5 rounded-xl hover:bg-slate-800 transition duration-300 text-xs tracking-wider uppercase text-center w-full sm:w-auto">
+                <Link href="/courses" className="bg-slate-950 text-white font-bold px-6 py-3.5 rounded-xl hover:bg-slate-800 transition duration-300 text-xs tracking-wider uppercase text-center w-full sm:w-auto">
                   Explore Courses
                 </Link>
-                <Link href="/admission" className="border border-slate-200 text-slate-950 hover:bg-slate-50 font-extrabold px-6 py-3.5 rounded-xl transition duration-300 text-xs tracking-wider uppercase text-center w-full sm:w-auto">
+                <Link href="/admission" className="border border-slate-200 text-slate-950 hover:bg-slate-50 font-bold px-6 py-3.5 rounded-xl transition duration-300 text-xs tracking-wider uppercase text-center w-full sm:w-auto">
                   Apply Online
                 </Link>
               </div>

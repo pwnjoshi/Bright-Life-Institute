@@ -4,9 +4,11 @@ import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Icon } from '@iconify/react'
+import { blogPosts } from '@/app/data/blogData'
+import FacebookFeed from '@/app/components/FacebookFeed'
 
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<'all' | 'academic' | 'language-career'>('all')
+  const [activeTab, setActiveTab] = useState<'all' | 'school-prep' | 'college-uni' | 'languages' | 'skills-career'>('all')
   const [faqOpen, setFaqOpen] = useState<number | null>(null)
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
   const heroRef = useRef<HTMLElement>(null)
@@ -52,28 +54,32 @@ export default function HomePage() {
   ]
 
   const courses = [
-    // Academic Packages
-    { name: '5-8 Tuition Class', category: 'academic', duration: 'Yearly', time: '6:00 AM - 8:00 AM', badge: 'Basic Level', desc: 'Booster tuition classes covering core subjects for Grades 5 to 8.', icon: 'lucide:book-open', rating: '4.8', students: '120+', accent: 'from-rose-500 to-orange-400', accentText: 'text-rose-600', accentBg: 'bg-rose-50', accentBorder: 'border-rose-200', accentBtn: 'bg-rose-600 hover:bg-rose-700' },
-    { name: 'SEE Package', category: 'academic', duration: 'Yearly', time: '4:00 PM - 6:00 PM', badge: 'Grade 10', desc: 'Complete board preparation for SEE with mock tests and analysis.', icon: 'lucide:book-check', rating: '4.9', students: '240+', accent: 'from-red-600 to-rose-400', accentText: 'text-red-600', accentBg: 'bg-red-50', accentBorder: 'border-red-200', accentBtn: 'bg-red-600 hover:bg-red-700' },
-    { name: '+2 Package', category: 'academic', duration: 'Yearly', time: '6:30 AM - 8:30 AM', badge: 'High School', desc: 'Science & Management classes for Grades 11 and 12 (+2 Level).', icon: 'lucide:brain', rating: '4.8', students: '180+', accent: 'from-violet-600 to-purple-400', accentText: 'text-violet-600', accentBg: 'bg-violet-50', accentBorder: 'border-violet-200', accentBtn: 'bg-violet-600 hover:bg-violet-700' },
-    { name: "Bachelor's Level Package", category: 'academic', duration: '4 Years', time: '6:00 AM - 8:00 AM', badge: 'TU, FWU & PU', desc: 'Coaching for BBA, BCA, BBS, BA, B.Ed, B.Sc subjects.', icon: 'lucide:award', rating: '4.9', students: '320+', accent: 'from-blue-600 to-indigo-400', accentText: 'text-blue-600', accentBg: 'bg-blue-50', accentBorder: 'border-blue-200', accentBtn: 'bg-blue-600 hover:bg-blue-700' },
-    { name: "Master's Level Package", category: 'academic', duration: '2 Years', time: '6:00 PM - 8:00 PM', badge: 'Postgraduate', desc: 'Advanced exam coaching for M.A, M.Ed, MBS, MBM courses.', icon: 'lucide:laptop', rating: '4.9', students: '110+', accent: 'from-indigo-600 to-blue-400', accentText: 'text-indigo-600', accentBg: 'bg-indigo-50', accentBorder: 'border-indigo-200', accentBtn: 'bg-indigo-600 hover:bg-indigo-700' },
+    // School & SEE Prep
+    { name: '5-8 Tuition Class', category: 'school-prep', duration: 'Yearly', time: '6:00 AM - 8:00 AM', badge: 'Basic Level', desc: 'Booster tuition classes covering core subjects for Grades 5 to 8.', icon: 'lucide:book-open', rating: '4.8', students: '120+', accent: 'from-rose-500 to-orange-400', accentText: 'text-rose-600', accentBg: 'bg-rose-50', accentBorder: 'border-rose-200', accentBtn: 'bg-rose-600 hover:bg-rose-700' },
+    { name: 'SEE Package', category: 'school-prep', duration: 'Yearly', time: '4:00 PM - 6:00 PM', badge: 'Grade 10', desc: 'Complete board preparation for SEE with mock tests and analysis.', icon: 'lucide:book-check', rating: '4.9', students: '240+', accent: 'from-red-600 to-rose-400', accentText: 'text-red-600', accentBg: 'bg-red-50', accentBorder: 'border-red-200', accentBtn: 'bg-red-600 hover:bg-red-700' },
+    { name: 'Bridge Course', category: 'school-prep', duration: '2 Months', time: '8:00 AM - 10:00 AM', badge: 'After SEE', desc: 'Transition courses preparing SEE graduates for +2 curriculum.', icon: 'lucide:sparkles', rating: '4.8', students: '150+', accent: 'from-amber-500 to-yellow-400', accentText: 'text-amber-600', accentBg: 'bg-amber-50', accentBorder: 'border-amber-200', accentBtn: 'bg-amber-500 hover:bg-amber-600' },
 
-    // Language & Career
-    { name: 'Basic English Language', category: 'language-career', duration: '3 Months', time: '11:00 AM - 1:00 PM', badge: 'Fluency', desc: 'Grammar, vocabulary and conversation practice for beginners.', icon: 'lucide:message-circle', rating: '4.7', students: '150+', accent: 'from-emerald-500 to-teal-400', accentText: 'text-emerald-600', accentBg: 'bg-emerald-50', accentBorder: 'border-emerald-200', accentBtn: 'bg-emerald-600 hover:bg-emerald-700' },
-    { name: 'Advance English Language', category: 'language-career', duration: '3 Months', time: '1:00 PM - 3:00 PM', badge: 'Advanced', desc: 'Professional public speaking, presentation, and communication.', icon: 'lucide:mic', rating: '4.8', students: '120+', accent: 'from-teal-500 to-cyan-400', accentText: 'text-teal-600', accentBg: 'bg-teal-50', accentBorder: 'border-teal-200', accentBtn: 'bg-teal-600 hover:bg-teal-700' },
-    { name: 'Bridge Course', category: 'language-career', duration: '2 Months', time: '8:00 AM - 10:00 AM', badge: 'After SEE', desc: 'Transition courses preparing SEE graduates for +2 curriculum.', icon: 'lucide:sparkles', rating: '4.8', students: '150+', accent: 'from-amber-500 to-yellow-400', accentText: 'text-amber-600', accentBg: 'bg-amber-50', accentBorder: 'border-amber-200', accentBtn: 'bg-amber-500 hover:bg-amber-600' },
-    { name: 'शिक्षक सेवा आयोग तयारी (TSC)', category: 'language-career', duration: '3 Months', time: '5:00 PM - 7:00 PM', badge: 'Govt Prep', desc: 'Preparation classes for Teacher Service Commission licenses.', icon: 'lucide:graduation-cap', rating: '4.9', students: '190+', accent: 'from-sky-600 to-blue-400', accentText: 'text-sky-600', accentBg: 'bg-sky-50', accentBorder: 'border-sky-200', accentBtn: 'bg-sky-600 hover:bg-sky-700' },
-    { name: 'लोक सेवा आयोग तयारी (Loksewa)', category: 'language-career', duration: '3 Months', time: '6:00 AM - 8:00 AM', badge: 'PSC Prep', desc: 'Civil service examination preparation for government posts.', icon: 'lucide:building-2', rating: '4.9', students: '280+', accent: 'from-slate-700 to-slate-500', accentText: 'text-slate-700', accentBg: 'bg-slate-100', accentBorder: 'border-slate-300', accentBtn: 'bg-slate-700 hover:bg-slate-800' },
-    { name: 'Banking तयारी (Banking Prep)', category: 'language-career', duration: '3 Months', time: '6:00 AM - 8:00 AM', badge: 'Banking', desc: 'Specialized training for banking sector recruitment exams.', icon: 'lucide:landmark', rating: '4.8', students: '140+', accent: 'from-green-600 to-emerald-400', accentText: 'text-green-600', accentBg: 'bg-green-50', accentBorder: 'border-green-200', accentBtn: 'bg-green-600 hover:bg-green-700' },
-    { name: 'Thesis & Report Consultation', category: 'language-career', duration: 'Custom', time: 'Flexible', badge: 'Thesis', desc: 'Expert academic consultation for Bachelor and Master reports.', icon: 'lucide:file-text', rating: '4.9', students: '95+', accent: 'from-pink-600 to-rose-400', accentText: 'text-pink-600', accentBg: 'bg-pink-50', accentBorder: 'border-pink-200', accentBtn: 'bg-pink-600 hover:bg-pink-700' },
-    { name: 'Video Editing', category: 'language-career', duration: '3 Months', time: '1:00 PM - 3:00 PM', badge: 'Creative', desc: 'Master editing with Premiere Pro, After Effects, and DaVinci Resolve.', icon: 'lucide:video', rating: '4.8', students: '110+', accent: 'from-orange-500 to-amber-400', accentText: 'text-orange-600', accentBg: 'bg-orange-50', accentBorder: 'border-orange-200', accentBtn: 'bg-orange-600 hover:bg-orange-700' },
-    { name: 'Graphics Designing', category: 'language-career', duration: '3 Months', time: '10:00 AM - 12:00 PM', badge: 'Design', desc: 'Master visual layouts, typography, Photoshop, and Illustrator.', icon: 'lucide:palette', rating: '4.9', students: '140+', accent: 'from-pink-500 to-rose-400', accentText: 'text-pink-600', accentBg: 'bg-pink-50', accentBorder: 'border-pink-200', accentBtn: 'bg-pink-600 hover:bg-pink-700' },
-    { name: 'Web Development', category: 'language-career', duration: '3 Months', time: '8:00 AM - 10:00 AM', badge: 'Development', desc: 'Full-stack development training covering HTML, CSS, JavaScript, and Node.js.', icon: 'lucide:globe', rating: '4.9', students: '180+', accent: 'from-blue-600 to-cyan-400', accentText: 'text-blue-600', accentBg: 'bg-blue-50', accentBorder: 'border-blue-200', accentBtn: 'bg-blue-600 hover:bg-blue-700' },
-    { name: 'App Developer', category: 'language-career', duration: '3 Months', time: '2:00 PM - 4:00 PM', badge: 'Mobile', desc: 'Learn cross-platform mobile app development with Flutter & React Native.', icon: 'lucide:smartphone', rating: '4.8', students: '95+', accent: 'from-indigo-600 to-purple-400', accentText: 'text-indigo-600', accentBg: 'bg-indigo-50', accentBorder: 'border-indigo-200', accentBtn: 'bg-indigo-600 hover:bg-indigo-700' },
-    { name: 'Computer Basic & Advance Classes', category: 'language-career', duration: '3 Months', time: '7:00 AM - 9:00 AM', badge: 'Basic Skills', desc: 'Essential digital literacy, MS Office Suite, email, and security basics.', icon: 'lucide:monitor', rating: '4.7', students: '220+', accent: 'from-emerald-500 to-teal-400', accentText: 'text-emerald-600', accentBg: 'bg-emerald-50', accentBorder: 'border-emerald-200', accentBtn: 'bg-emerald-600 hover:bg-emerald-700' },
-    { name: 'Digital Marketing Classes', category: 'language-career', duration: '3 Months', time: '4:00 PM - 6:00 PM', badge: 'Marketing', desc: 'Master SEO, social media ads, analytics, and content strategy.', icon: 'lucide:megaphone', rating: '4.8', students: '130+', accent: 'from-purple-500 to-indigo-400', accentText: 'text-purple-600', accentBg: 'bg-purple-50', accentBorder: 'border-purple-200', accentBtn: 'bg-purple-600 hover:bg-purple-750' },
-    { name: 'Computer Programming Classes', category: 'language-career', duration: '3 Months', time: '11:00 AM - 1:00 PM', badge: 'Coding', desc: 'Learn programming fundamentals in Python, C, C++, and Java.', icon: 'lucide:code-2', rating: '4.9', students: '115+', accent: 'from-teal-600 to-emerald-400', accentText: 'text-teal-600', accentBg: 'bg-teal-50', accentBorder: 'border-teal-200', accentBtn: 'bg-teal-600 hover:bg-teal-700' }
+    // College & University
+    { name: '+2 Package', category: 'college-uni', duration: 'Yearly', time: '6:30 AM - 8:30 AM', badge: 'High School', desc: 'Science & Management classes for Grades 11 and 12 (+2 Level).', icon: 'lucide:brain', rating: '4.8', students: '180+', accent: 'from-violet-600 to-purple-400', accentText: 'text-violet-600', accentBg: 'bg-violet-50', accentBorder: 'border-violet-200', accentBtn: 'bg-violet-600 hover:bg-violet-700' },
+    { name: "Bachelor's Level Package", category: 'college-uni', duration: '4 Years', time: '6:00 AM - 8:00 AM', badge: 'TU, FWU & PU', desc: 'Coaching for BBA, BCA, BBS, BA, B.Ed, B.Sc subjects.', icon: 'lucide:award', rating: '4.9', students: '320+', accent: 'from-blue-600 to-indigo-400', accentText: 'text-blue-600', accentBg: 'bg-blue-50', accentBorder: 'border-blue-200', accentBtn: 'bg-blue-600 hover:bg-blue-700' },
+    { name: "Master's Level Package", category: 'college-uni', duration: '2 Years', time: '6:00 PM - 8:00 PM', badge: 'Postgraduate', desc: 'Advanced exam coaching for M.A, M.Ed, MBS, MBM courses.', icon: 'lucide:laptop', rating: '4.9', students: '110+', accent: 'from-indigo-600 to-blue-400', accentText: 'text-indigo-600', accentBg: 'bg-indigo-50', accentBorder: 'border-indigo-200', accentBtn: 'bg-indigo-600 hover:bg-indigo-700' },
+    { name: 'Thesis & Report Consultation', category: 'college-uni', duration: 'Custom', time: 'Flexible', badge: 'Thesis', desc: 'Expert academic consultation for Bachelor and Master reports.', icon: 'lucide:file-text', rating: '4.9', students: '95+', accent: 'from-pink-600 to-rose-400', accentText: 'text-pink-600', accentBg: 'bg-pink-50', accentBorder: 'border-pink-200', accentBtn: 'bg-pink-600 hover:bg-pink-700' },
+
+    // Languages
+    { name: 'Basic English Language', category: 'languages', duration: '3 Months', time: '11:00 AM - 1:00 PM', badge: 'Fluency', desc: 'Grammar, vocabulary and conversation practice for beginners.', icon: 'lucide:message-circle', rating: '4.7', students: '150+', accent: 'from-emerald-500 to-teal-400', accentText: 'text-emerald-600', accentBg: 'bg-emerald-50', accentBorder: 'border-emerald-200', accentBtn: 'bg-emerald-600 hover:bg-emerald-700' },
+    { name: 'Advance English Language', category: 'languages', duration: '3 Months', time: '1:00 PM - 3:00 PM', badge: 'Advanced', desc: 'Professional public speaking, presentation, and communication.', icon: 'lucide:mic', rating: '4.8', students: '120+', accent: 'from-teal-500 to-cyan-400', accentText: 'text-teal-600', accentBg: 'bg-teal-50', accentBorder: 'border-teal-200', accentBtn: 'bg-teal-600 hover:bg-teal-700' },
+
+    // Skills & Careers
+    { name: 'शिक्षक सेवा आयोग तयारी (TSC)', category: 'skills-career', duration: '3 Months', time: '5:00 PM - 7:00 PM', badge: 'Govt Prep', desc: 'Preparation classes for Teacher Service Commission licenses.', icon: 'lucide:graduation-cap', rating: '4.9', students: '190+', accent: 'from-sky-600 to-blue-400', accentText: 'text-sky-600', accentBg: 'bg-sky-50', accentBorder: 'border-sky-200', accentBtn: 'bg-sky-600 hover:bg-sky-700' },
+    { name: 'लोक सेवा आयोग तयारी (Loksewa)', category: 'skills-career', duration: '3 Months', time: '6:00 AM - 8:00 AM', badge: 'PSC Prep', desc: 'Civil service examination preparation for government posts.', icon: 'lucide:building-2', rating: '4.9', students: '280+', accent: 'from-slate-700 to-slate-500', accentText: 'text-slate-700', accentBg: 'bg-slate-100', accentBorder: 'border-slate-300', accentBtn: 'bg-slate-700 hover:bg-slate-800' },
+    { name: 'Banking तयारी (Banking Prep)', category: 'skills-career', duration: '3 Months', time: '6:00 AM - 8:00 AM', badge: 'Banking', desc: 'Specialized training for banking sector recruitment exams.', icon: 'lucide:landmark', rating: '4.8', students: '140+', accent: 'from-green-600 to-emerald-400', accentText: 'text-green-600', accentBg: 'bg-green-50', accentBorder: 'border-green-200', accentBtn: 'bg-green-600 hover:bg-green-700' },
+    { name: 'Video Editing', category: 'skills-career', duration: '3 Months', time: '1:00 PM - 3:00 PM', badge: 'Creative', desc: 'Master editing with Premiere Pro, After Effects, and DaVinci Resolve.', icon: 'lucide:video', rating: '4.8', students: '110+', accent: 'from-orange-500 to-amber-400', accentText: 'text-orange-600', accentBg: 'bg-orange-50', accentBorder: 'border-orange-200', accentBtn: 'bg-orange-600 hover:bg-orange-700' },
+    { name: 'Graphics Designing', category: 'skills-career', duration: '3 Months', time: '10:00 AM - 12:00 PM', badge: 'Design', desc: 'Master visual layouts, typography, Photoshop, and Illustrator.', icon: 'lucide:palette', rating: '4.9', students: '140+', accent: 'from-pink-500 to-rose-400', accentText: 'text-pink-600', accentBg: 'bg-pink-50', accentBorder: 'border-pink-200', accentBtn: 'bg-pink-600 hover:bg-pink-700' },
+    { name: 'Web Development', category: 'skills-career', duration: '3 Months', time: '8:00 AM - 10:00 AM', badge: 'Development', desc: 'Full-stack development training covering HTML, CSS, JavaScript, and Node.js.', icon: 'lucide:globe', rating: '4.9', students: '180+', accent: 'from-blue-600 to-cyan-400', accentText: 'text-blue-600', accentBg: 'bg-blue-50', accentBorder: 'border-blue-200', accentBtn: 'bg-blue-600 hover:bg-blue-700' },
+    { name: 'App Developer', category: 'skills-career', duration: '3 Months', time: '2:00 PM - 4:00 PM', badge: 'Mobile', desc: 'Learn cross-platform mobile app development with Flutter & React Native.', icon: 'lucide:smartphone', rating: '4.8', students: '95+', accent: 'from-indigo-600 to-purple-400', accentText: 'text-indigo-600', accentBg: 'bg-indigo-50', accentBorder: 'border-indigo-200', accentBtn: 'bg-indigo-600 hover:bg-indigo-700' },
+    { name: 'Computer Basic & Advance Classes', category: 'skills-career', duration: '3 Months', time: '7:00 AM - 9:00 AM', badge: 'Basic Skills', desc: 'Essential digital literacy, MS Office Suite, email, and security basics.', icon: 'lucide:monitor', rating: '4.7', students: '220+', accent: 'from-emerald-500 to-teal-400', accentText: 'text-emerald-600', accentBg: 'bg-emerald-50', accentBorder: 'border-emerald-200', accentBtn: 'bg-emerald-600 hover:bg-emerald-700' },
+    { name: 'Digital Marketing Classes', category: 'skills-career', duration: '3 Months', time: '4:00 PM - 6:00 PM', badge: 'Marketing', desc: 'Master SEO, social media ads, analytics, and content strategy.', icon: 'lucide:megaphone', rating: '4.8', students: '130+', accent: 'from-purple-500 to-indigo-400', accentText: 'text-purple-600', accentBg: 'bg-purple-50', accentBorder: 'border-purple-200', accentBtn: 'bg-purple-600 hover:bg-purple-700' },
+    { name: 'Computer Programming Classes', category: 'skills-career', duration: '3 Months', time: '11:00 AM - 1:00 PM', badge: 'Coding', desc: 'Learn programming fundamentals in Python, C, C++, and Java.', icon: 'lucide:code-2', rating: '4.9', students: '115+', accent: 'from-teal-600 to-emerald-400', accentText: 'text-teal-600', accentBg: 'bg-teal-50', accentBorder: 'border-teal-200', accentBtn: 'bg-teal-600 hover:bg-teal-700' }
   ]
 
   const filteredCourses = activeTab === 'all' ? courses : courses.filter(c => c.category === activeTab)
@@ -313,8 +319,10 @@ export default function HomePage() {
           <div className="flex overflow-x-auto sm:flex-wrap sm:justify-center gap-2 mb-8 sm:mb-12 pb-3 -mx-4 px-4 scrollbar-none select-none">
             {[
               { id: 'all', label: 'All Courses' },
-              { id: 'academic', label: 'Academic Packages' },
-              { id: 'language-career', label: 'Language & Career' },
+              { id: 'school-prep', label: 'School & SEE Prep' },
+              { id: 'college-uni', label: 'College & University' },
+              { id: 'languages', label: 'Languages' },
+              { id: 'skills-career', label: 'Skills & Careers' },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -413,14 +421,7 @@ export default function HomePage() {
                 </div>
                 <p className="text-slate-650 text-xs sm:text-sm leading-relaxed max-w-sm">{item.desc}</p>
 
-                <div className="pt-2 w-full">
-                  <Link
-                    href="/staffs"
-                    className="w-full bg-slate-50 hover:bg-slate-100 text-slate-800 text-xs font-bold py-2.5 rounded-xl block text-center transition"
-                  >
-                    View Profile
-                  </Link>
-                </div>
+
               </div>
             ))}
           </div>
@@ -480,6 +481,145 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 9. Latest News & Articles Section */}
+      <section className="py-16 sm:py-28 bg-slate-50 border-t border-slate-100">
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="text-center space-y-3 mb-12 sm:mb-16">
+            <span className="text-primary text-xs font-black uppercase tracking-widest">Our Insights</span>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950">Latest Articles & Guidance</h2>
+            <div className="h-1.5 w-16 bg-primary mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {blogPosts.slice(0, 3).map((post) => (
+              <article
+                key={post.slug}
+                className="group bg-white rounded-2xl border border-slate-100 overflow-hidden flex flex-col hover:border-slate-200 hover:shadow-lg transition-all duration-300"
+              >
+                {/* Visual Thumbnail */}
+                <div className="relative aspect-video bg-slate-50 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/20 to-transparent z-10"></div>
+                  <span className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-xs text-slate-900 border border-slate-200/50 text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-2xs">
+                    {post.category}
+                  </span>
+                  
+                  <div className="absolute inset-0 flex items-center justify-center p-8 bg-gradient-to-br from-slate-50 to-slate-100">
+                    <Icon
+                      icon={
+                        post.category === 'Study Tips'
+                          ? 'lucide:book-open'
+                          : post.category === 'Language Guide'
+                          ? 'lucide:languages'
+                          : 'lucide:graduation-cap'
+                      }
+                      className="text-slate-200 group-hover:scale-110 transition-transform duration-300"
+                      width={64}
+                    />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-5 flex-grow flex flex-col justify-between space-y-3">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3 text-slate-400 text-[10px] font-semibold">
+                      <span>{post.date}</span>
+                      <span className="h-1 w-1 rounded-full bg-slate-300"></span>
+                      <span>{post.readTime}</span>
+                    </div>
+
+                    <h3 className="text-sm sm:text-base font-bold text-slate-900 leading-snug group-hover:text-brand-red transition-colors duration-200 line-clamp-2">
+                      <Link href={`/blog/${post.slug}`}>
+                        {post.title}
+                      </Link>
+                    </h3>
+
+                    <p className="text-slate-550 text-xs font-medium line-clamp-2 leading-relaxed">
+                      {post.excerpt}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
+                    <div>
+                      <span className="text-[10px] text-slate-400 font-semibold tracking-wider uppercase">Announcement</span>
+                    </div>
+                    <Link href={`/blog/${post.slug}`} className="text-brand-red hover:underline flex items-center gap-0.5 group/link">
+                      Read
+                      <Icon icon="lucide:chevron-right" className="group-hover/link:translate-x-0.5 transition-transform" width={12} />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+                  <div className="text-center mt-12">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 bg-slate-950 text-white font-bold px-6 py-3 rounded-xl hover:bg-slate-800 transition duration-300 text-xs tracking-wider uppercase"
+            >
+              View All Articles
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Live Social Hub Section */}
+      <section className="py-16 sm:py-24 bg-slate-50 border-t border-slate-100">
+        <div className="container mx-auto max-w-5xl px-4">
+          <div className="text-center space-y-3 mb-10 sm:mb-12">
+            <span className="text-primary text-xs font-black uppercase tracking-widest">Social Stream</span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900">Live Facebook Feed & Location</h2>
+            <p className="text-slate-500 text-xs sm:text-sm max-w-md mx-auto leading-relaxed font-medium">
+              Stay updated with daily notices, check our timings, or find directions to our Campus Road center.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+            {/* Left Column: FB Feed */}
+            <FacebookFeed />
+
+            {/* Right Column: Timings & Map Card */}
+            <div className="bg-white rounded-3xl border border-slate-100 p-5 sm:p-6 shadow-xs flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2.5">
+                  <div className="h-9 w-9 rounded-xl bg-brand-red/5 flex items-center justify-center text-brand-red shrink-0">
+                    <Icon icon="lucide:clock" width={18} height={18} />
+                  </div>
+                  <div>
+                    <h3 className="text-xs sm:text-sm font-bold text-slate-900">Operational Hours</h3>
+                    <p className="text-[10px] font-semibold text-slate-400">Class & inquiry timings</p>
+                  </div>
+                </div>
+
+                <div className="space-y-2.5 text-xs font-medium text-slate-600">
+                  <div className="flex justify-between border-b border-slate-50 pb-2">
+                    <span>Sunday - Friday</span>
+                    <span className="font-bold text-slate-900 font-sans">6:00 AM - 8:00 PM</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Saturdays</span>
+                    <span className="font-bold text-slate-900 font-sans">Special Batches & Support Only</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Map embed */}
+              <div className="flex-grow rounded-2xl overflow-hidden border border-slate-100 min-h-[220px] relative">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3513.7915598687395!2d80.17887711507455!3d28.963177682288338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a1ac0b20531557%3A0x633390ee8568c07e!2sBright%20Life%20Educational%20Institute!5e0!3m2!1sen!2snp!4v1680000000000!5m2!1sen!2snp"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full absolute inset-0"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 10. FAQ Accordion */}
       <section className="py-16 sm:py-28 bg-white border-t border-slate-100">

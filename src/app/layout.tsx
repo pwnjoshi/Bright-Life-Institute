@@ -8,13 +8,13 @@ import Aoscompo from "@/utils/aos"
 
 const bodyFont = Plus_Jakarta_Sans({ 
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-body-custom",
   weight: ["300", "400", "500", "600", "700", "800"]
 })
 
 const titleFont = Outfit({ 
   subsets: ["latin"],
-  variable: "--font-title",
+  variable: "--font-title-custom",
   weight: ["400", "500", "600", "700", "800", "900"]
 })
 
@@ -39,6 +39,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Bright Life Educational Institute",
     description: "Mahendranagar's leading coaching center since 2005.",
+  },
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icon.png', type: 'image/png', sizes: '192x192' },
+    ],
+    shortcut: '/icon.png',
+    apple: '/icon.png',
   }
 }
 
@@ -49,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${bodyFont.variable} ${titleFont.variable} font-sans`} suppressHydrationWarning>
+      <body className={`${bodyFont.variable} ${titleFont.variable}`} suppressHydrationWarning>
           <Aoscompo>
             <Header />
             {children}

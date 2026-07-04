@@ -115,6 +115,7 @@ const Footer = () => {
                 { label: 'About Us', href: '/about' },
                 { label: 'Courses Offered', href: '/courses' },
                 { label: 'Our Faculty', href: '/staffs' },
+                { label: 'Blog & News', href: '/blog' },
                 { label: 'Online Admission', href: '/admission' },
                 { label: 'Contact Us', href: '/contact' },
               ].map((link) => (

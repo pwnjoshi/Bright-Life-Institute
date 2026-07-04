@@ -19,9 +19,6 @@
   --color-slate-50: #F8FAFC;
   --color-cream: #FFFDF9; /* Cream/white */
 
-  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --font-title: var(--font-title), ui-sans-serif, system-ui, sans-serif;
-
   --background-image-banner-image: none;
   --background-image-newsletter: none;
 }
@@ -47,8 +44,12 @@
     @apply py-14
   }
 
+  body, button, input, select, textarea, a {
+    font-family: var(--font-body-custom), ui-sans-serif, system-ui, sans-serif;
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-title
+    font-family: var(--font-title-custom), ui-sans-serif, system-ui, sans-serif;
   }
 
   h1 {
