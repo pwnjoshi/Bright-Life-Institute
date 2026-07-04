@@ -93,9 +93,10 @@ export default function BlogClient({ posts }: BlogClientProps) {
             {filteredPosts.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {filteredPosts.map((post, idx) => (
-                  <article
+                  <Link
                     key={post.slug}
-                    className="group bg-white rounded-2xl border border-slate-100 overflow-hidden flex flex-col hover:border-slate-200 hover:shadow-lg transition-all duration-300"
+                    href={`/blog/${post.slug}`}
+                    className="group bg-white rounded-2xl border border-slate-100 overflow-hidden flex flex-col hover:border-slate-200 hover:shadow-lg transition-all duration-300 focus:outline-none"
                   >
                     {/* Visual Thumbnail */}
                     <div className="relative aspect-video bg-slate-50 overflow-hidden">
@@ -137,9 +138,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                         </div>
 
                         <h2 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:text-brand-red transition-colors duration-200 line-clamp-2">
-                          <Link href={`/blog/${post.slug}`} className="focus:outline-none">
-                            {post.title}
-                          </Link>
+                          {post.title}
                         </h2>
 
                         <p className="text-slate-500 text-xs sm:text-sm font-medium line-clamp-3 leading-relaxed">
@@ -153,7 +152,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                         <Icon icon="lucide:bell" width={12} />
                       </div>
                     </div>
-                  </article>
+                  </Link>
                 ))}
               </div>
             ) : (

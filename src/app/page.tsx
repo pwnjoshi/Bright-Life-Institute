@@ -492,9 +492,10 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {blogPosts.slice(0, 3).map((post) => (
-              <article
+              <Link
                 key={post.slug}
-                className="group bg-white rounded-2xl border border-slate-100 overflow-hidden flex flex-col hover:border-slate-200 hover:shadow-lg transition-all duration-300"
+                href={`/blog/${post.slug}`}
+                className="group bg-white rounded-2xl border border-slate-100 overflow-hidden flex flex-col hover:border-slate-200 hover:shadow-lg transition-all duration-300 focus:outline-none"
               >
                 {/* Visual Thumbnail */}
                 <div className="relative aspect-video bg-slate-50 overflow-hidden">
@@ -528,9 +529,7 @@ export default function HomePage() {
                     </div>
 
                     <h3 className="text-sm sm:text-base font-bold text-slate-900 leading-snug group-hover:text-brand-red transition-colors duration-200 line-clamp-2">
-                      <Link href={`/blog/${post.slug}`}>
-                        {post.title}
-                      </Link>
+                      {post.title}
                     </h3>
 
                     <p className="text-slate-550 text-xs font-medium line-clamp-2 leading-relaxed">
@@ -542,13 +541,13 @@ export default function HomePage() {
                     <div>
                       <span className="text-[10px] text-slate-400 font-semibold tracking-wider uppercase">Announcement</span>
                     </div>
-                    <Link href={`/blog/${post.slug}`} className="text-brand-red hover:underline flex items-center gap-0.5 group/link">
+                    <span className="text-brand-red hover:underline flex items-center gap-0.5 group/link">
                       Read
                       <Icon icon="lucide:chevron-right" className="group-hover/link:translate-x-0.5 transition-transform" width={12} />
-                    </Link>
+                    </span>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 
